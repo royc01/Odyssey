@@ -1,0 +1,33 @@
+{
+  "name": "Odyssey",
+  "author": "Roy",
+  "url": "https://github.com/royc01/Odyssey",
+  "version": "1.0.0",
+  "displayName": {
+    "default": "Odyssey",
+    "zh_CN": "任我行"
+  },
+  "description": {
+    "default": "Since when have we started to worry that there is no one in the mountain? Since when have we started to be scared about looking at the stars?",
+    "zh_CN": "从何时开始忌讳空山无人，从何时开始怕遥望星尘。"
+  },
+  "readme": {
+    "default": "README.md",
+    "zh_CN": "README_zh_CN.md"
+  },
+  "i18n": [
+    "en_US",
+    "zh_CN"
+  ],
+  "funding": {
+    "openCollective": "",
+    "patreon": "",
+    "github": "",
+    "custom": [
+      "https://afdian.net/a/Savor"
+    ]
+  },
+  "modes": [
+    "light"
+  ]
+}
