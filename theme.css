@@ -134,7 +134,7 @@
     --b3-theme-secondary: #f3a92f;
     --b3-theme-background: #fff;/* 编辑区背景 */
     --b3-theme-background-light: rgb(247, 246, 243);
-    --b3-theme-surface: #fff;/* 面板主色 */
+    --b3-theme-surface: #f4f8f2;/* 面板主色 */
     --b3-theme-surface-light: rgba(243, 243, 243, .5);
     --b3-theme-error: #eb5757;
 
@@ -167,7 +167,7 @@
 	--webkit-scrollbar: 4px;
 	--webkit-scrollbar-thumb: 4px;
     /* 列表 */
-    --b3-list-hover: #ecefeb;
+    --b3-list-hover: #e7ece6;
 
     /* 菜单 */
     --b3-menu-background: #f8f9fa;
@@ -638,9 +638,6 @@ body.body--win32{
 }
 
 
-.layout__center{
-	margin:0 2vw;
-}
 
 .layout__dockl,.layout__dockr{
 	border-radius:20px;
@@ -648,11 +645,12 @@ body.body--win32{
 }
 .layout__dockl>.fn__flex-1,.layout__dockr>.fn__flex-1{
 	padding:3px;
-	background-color:#fff;
+	background-color:#f4f8f2;
 }
 .layout__center .layout-tab-container{
 	border-radius:20px;
 	padding:3px;
+	background-color: var(--b3-theme-background);
 }
 
 .layout-tab-bar{
@@ -720,6 +718,27 @@ body.body--win32{
 	color:var(--b3-theme-on-background);
 }
 
+	
 .layout__center .layout__resize--lr{
-	margin:0 1vw;
+	margin:0 17px;
+}
+.layout__center .layout__resize{
+	padding-top:8px;
+}
+
+#dockLeft.fn__none+#layouts{
+	margin-left:40px;
+}
+#layouts:has(+#dockRight.fn__none){
+	margin-right:40px;
+}
+.layout__dockl:not([style="width: 0px;"]){
+	margin-right:40px;
+}
+.layout__dockr:not([style="width: 0px;"]){
+	margin-left:40px;
+}
+
+.layout-tab-bar:not(.layout-tab-bar--readonly){
+	margin-right:6px;
 }

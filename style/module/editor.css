@@ -225,7 +225,7 @@
 }
 /* 文字弹出工具条 */
 .protyle-toolbar{
-    border-radius: 3px;
+    border-radius: 8px;
 	box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px; 
 	animation: toolbar 0.2s ease-in-out;
 	border:none;
@@ -260,6 +260,7 @@ width:36px;
 	box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
 	border:none;
 	background-color: var(--b3-theme-background);
+	border-radius: 8px;
 }
 /* 引用弹出搜索菜单 */
 .protyle-hint{

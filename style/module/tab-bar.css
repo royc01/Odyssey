@@ -1,7 +1,6 @@
 /* ————————————————————页签———————————————————— */
 .layout-tab-bar{
 	position:relative;
-	background-color: var(--b3-theme-background);
 	margin-bottom:8px;
 }
 /*页签前后分割线
@@ -43,16 +42,15 @@ ul.layout-tab-bar--readonly .item__close[data-type="more"]:after{
 	padding:0px 0 0px 6px;
 }
 .layout-tab-bar .item--pin .item__icon{
-	padding:2px 2px 3px 3px;
+	padding:0px 2px 0px 3px;
+}
+.layout-tab-bar .item--pin .custom-icon{
+	padding:2px 0px 3px 0px;
 }
 .layout-tab-bar .item--pin .item__text{
 	padding:0px 2px 0px 3px;
 }
-.layout-tab-bar .item--pin .item__graphic{
-	padding:3px 3px 3px 3px;
-	height:16px;
-	width:16px;
-}
+
 .layout-tab-bar .item--pin:nth-child(4n-3){
 	background-color:var(--b3-card-error-background);
 }
