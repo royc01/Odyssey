@@ -7,9 +7,8 @@
 #notionToolbar div,#notionToolplus div{
 	height:22px;
 	width:22px!important;
-	background-color:var(--b3-theme-background);
 	display: inline-block;
-	margin: 5px 4px 5px 0px 
+	margin: 7px 4px 5px 0px 
 }
 
 
