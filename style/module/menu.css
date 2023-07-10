@@ -3,22 +3,16 @@
 	animation: menu 0.2s ease-in-out;
 	box-shadow: var(--b3-menu-shadow);
 	background-color:var(--b3-theme-background);
-	padding:4px;
 	border:none;
-	border-radius:8px;
 }
 .b3-menu .b3-menu__submenu{
-	padding:4px;
 	background-color:var(--b3-theme-background)!important;
 	box-shadow: var(--b3-menu-shadow);
 	border:none;
-	margin: 4px 0px;
-	border-radius:8px;
 }
 .b3-menu__item{
 	padding: 0 8px;
 	background-color: var(--b3-theme-background);
-	border-radius:6px;
 }
 .b3-menu__item:hover:not(.b3-menu__item--readonly):not(.b3-menu__item--custom),
 .b3-menu__item--current {
@@ -27,9 +21,7 @@
 .b3-menu__accelerator{
 	color:var(--b3-scroll-color-hover);
 }/*快捷键提示*/
-.b3-menu__label div{
-	margin: 4px 0;
-}
+
 .b3-list-item--big{
 	padding: 14px 24px;
 	border-radius: 0px;

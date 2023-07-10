@@ -56,7 +56,9 @@
 .toolbar__window #restoreWindow, .toolbar__window #maxWindow{
 	margin: 7px 4px 7px 0px 
 }
-
+.toolbar__item--win{
+	height:unset;
+}
 #closeWindow svg{
 	width: 10px!important;
 	padding: 4px 8px;
