@@ -26,6 +26,7 @@
 	margin: 5px 4px 5px 0px;
 	border-radius:5px;
 	padding: 1px;
+	height: 22px;  
 }
 .toolbar__window .toolbar__item:not(.toolbar__item--close){
 	padding: 3px;
@@ -98,7 +99,7 @@
 
 #barWorkspace {
 	height:22px;
-	border-radius:5px;
+	border-radius:6px;
 	padding:0 3px 0 7px;
 	margin:0px 3px 0 2px;
 }
