@@ -2,9 +2,97 @@ window.theme = {};
 
 
 
+/**
+ * 加载样式文件
+ * @params {string} href 样式地址
+ * @params {string} id 样式 ID
+ */
+window.theme.loadStyle = function (href, id = null) {
+    let style = document.createElement('link');
+    if (id) style.id = id;
+    style.type = 'text/css';
+    style.rel = 'stylesheet';
+    style.href = href;
+    document.head.appendChild(style);
+}
+
+/**
+ * 更新样式文件
+ * @params {string} id 样式文件 ID
+ * @params {string} href 样式文件地址
+ */
+window.theme.updateStyle = function (id, href) {
+    let style = document.getElementById(id);
+    if (style) {
+        style.setAttribute('href', href);
+    }
+    else {
+        window.theme.loadStyle(href, id);
+    }
+}
+
+window.theme.ID_COLOR_STYLE = 'theme-color-style';
+
+/**
+ * 获取主题模式
+ * @return {string} light 或 dark
+ */
+window.theme.themeMode = (() => {
+    /* 根据浏览器主题判断颜色模式 */
+    // switch (true) {
+    //     case window.matchMedia('(prefers-color-scheme: light)').matches:
+    //         return 'light';
+    //     case window.matchMedia('(prefers-color-scheme: dark)').matches:
+    //         return 'dark';
+    //     default:
+    //         return null;
+    // }
+    /* 根据配置选项判断主题 */
+    switch (window.siyuan.config.appearance.mode) {
+        case 0:
+            return 'light';
+        case 1:
+            return 'dark';
+        default:
+            return null;
+    }
+})();
+
+
+/**
+ * 更换主题模式
+ * @params {string} lightStyle 浅色主题配置文件路径
+ * @params {string} darkStyle 深色主题配置文件路径
+ */
+window.theme.changeThemeMode = function (
+    lightStyle,
+    darkStyle,
+) {
+    let href_color = null;
+    switch (window.theme.themeMode) {
+        case 'light':
+            href_color = lightStyle;
+            break;
+        case 'dark':
+        default:
+            href_color = darkStyle;
+            break;
+    }
+    window.theme.updateStyle(window.theme.ID_COLOR_STYLE, href_color);
+}
+
+
+/* 根据当前主题模式加载样式配置文件 */
+window.theme.changeThemeMode(
+    `/appearance/themes/Odyssey/style/topbar/forest.css`,
+    `/appearance/themes/Odyssey/style/topbar/ocean.css`,
+);
 
 
 
+
+
+/*----------------------------------创建主题工具栏区域----------------------------------
 
 
   /****************************思源API操作**************************/ 
@@ -41,8 +129,15 @@ window.theme = {};
   button.appendChild(SubMenu(selectid,selecttype))
   return button
 }
+function SubMenu(selectid,selecttype){
+  let button = document.createElement("button")
+  button.id="viewselectSub"
+  button.className="b3-menu__submenu"
+  button.appendChild(MenuItems(selectid,selecttype))
+  return button
+}
 
-function SubMenu(selectid,selecttype,className = 'b3-menu__submenu') {
+  function MenuItems(selectid,selecttype,className = 'b3-menu__items'){
   let node = document.createElement('div');
   node.className = className;
   if(selecttype=="NodeList"){
@@ -56,7 +151,6 @@ function SubMenu(selectid,selecttype,className = 'b3-menu__submenu') {
     node.appendChild(FixWidth(selectid))
     node.appendChild(AutoWidth(selectid))
 	node.appendChild(FullWidth(selectid))
-	node.appendChild(dHeader(selectid))
 	node.appendChild(vHeader(selectid))
 	node.appendChild(Removeth(selectid))
 	node.appendChild(Defaultth(selectid))
@@ -165,17 +259,6 @@ function FullWidth(selectid){
   button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">页面宽度</span>`
   return button
 }
-function dHeader(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.onclick=ViewMonitor
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","t")
-  button.setAttribute("custom-attr-value","dongjie")
-
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">冻结表头滚屏</span>`
-  return button
-}
 function vHeader(selectid){
   let button = document.createElement("button")
   button.className="b3-menu__item"
@@ -214,7 +297,7 @@ function quoteError(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","error")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-1f6ab"></use></svg><span class="b3-menu__label">禁止</span>`
+  button.innerHTML=`<span class="b3-menu__label">🚫禁止</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -224,7 +307,7 @@ function Warn(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","warn")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-26a0"></use></svg><span class="b3-menu__label">警告</span>`
+  button.innerHTML=`<span class="b3-menu__label">⚠警告</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -234,7 +317,7 @@ function Bug(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","bug")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-1f41b"></use></svg><span class="b3-menu__label">bug</span>`
+  button.innerHTML=`<span class="b3-menu__label">🐛bug</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -244,7 +327,7 @@ function Check(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","check")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-2705"></use></svg><span class="b3-menu__label">正确</span>`
+  button.innerHTML=`<span class="b3-menu__label">✅正确</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -254,7 +337,7 @@ function Light(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","light")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-1f4a1"></use></svg><span class="b3-menu__label">灵感</span>`
+  button.innerHTML=`<span class="b3-menu__label">💡灵感</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -264,7 +347,7 @@ function Question(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","question")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-2753"></use></svg><span class="b3-menu__label">问题</span>`
+  button.innerHTML=`<span class="b3-menu__label">❓问题</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -274,7 +357,7 @@ function Wrong(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","wrong")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-274c"></use></svg><span class="b3-menu__label">错误</span>`
+  button.innerHTML=`<span class="b3-menu__label">❌错误</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -284,7 +367,7 @@ function Info(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","info")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-2139"></use></svg><span class="b3-menu__label">信息</span>`
+  button.innerHTML=`<span class="b3-menu__label">ℹ信息</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -294,7 +377,7 @@ function Pen(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","pen")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-1f58b"></use></svg><span class="b3-menu__label">记录</span>`
+  button.innerHTML=`<span class="b3-menu__label">🖋记录</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -304,7 +387,7 @@ function Note(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","note")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-1f4d3"></use></svg><span class="b3-menu__label">汇总</span>`
+  button.innerHTML=`<span class="b3-menu__label">📓汇总</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -314,7 +397,7 @@ function Bell(selectid){
   button.setAttribute("data-node-id",selectid)
   button.setAttribute("custom-attr-name","b")
   button.setAttribute("custom-attr-value","bell")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#icon-1f514"></use></svg><span class="b3-menu__label">提醒</span>`
+  button.innerHTML=`<span class="b3-menu__label">🔔提醒</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -414,15 +497,93 @@ setTimeout(()=>ClickMonitor(),1000)
 
 
 
+
+
+
+
+
+/**---------------------------------------------------------主题-------------------------------------------------------------- */
+
+function themeButton() {
+	odysseyThemeToolbarAddButton(
+        "buttonForest",
+        "toolbar__item b3-tooltips b3-tooltips__sw",
+		"Forest",
+		'light',
+        () => {
+            loadStyle("/appearance/themes/Odyssey/style/topbar/forest.css", "Forest").setAttribute("topicfilter", "buttonForest");
+            qucuFiiter();
+        },
+        () => {
+            document.getElementById("Forest").remove();
+        },
+        true
+    );
+		odysseyThemeToolbarAddButton(
+        "buttonFlower",
+        "toolbar__item b3-tooltips b3-tooltips__sw",
+		"Flower",
+		'light',
+        () => {
+            loadStyle("/appearance/themes/Odyssey/style/topbar/flower.css", "Flower").setAttribute("topicfilter", "buttonFlower");
+            qucuFiiter();
+        },
+        () => {
+            document.getElementById("Flower").remove();
+        },
+        true
+    );
+		odysseyThemeToolbarAddButton(
+        "buttonWind",
+        "toolbar__item b3-tooltips b3-tooltips__sw",
+		"Wind",
+		'light',
+        () => {
+            loadStyle("/appearance/themes/Odyssey/style/topbar/wind.css", "Wind").setAttribute("topicfilter", "buttonsugar");
+            qucuFiiter();
+        },
+        () => {
+            document.getElementById("Wind").remove();
+        },
+        true
+    );
+		odysseyThemeToolbarAddButton(
+        "buttonOcean",
+        "toolbar__item b3-tooltips b3-tooltips__sw",
+		"Ocean",
+		'dark',
+        () => {
+            loadStyle("/appearance/themes/Odyssey/style/topbar/ocean.css", "Ocean").setAttribute("topicfilter", "buttonOcean");
+            qucuFiiter();
+        },
+        () => {
+            document.getElementById("Ocean").remove();
+        },
+        true
+    );
+	    odysseyThemeToolbarAddButton(
+        "buttonMountain",
+        "toolbar__item b3-tooltips b3-tooltips__sw",
+		"Mountain",
+		'dark',
+        () => {
+            loadStyle("/appearance/themes/Odyssey/style/topbar/mountain.css", "Mountain").setAttribute("topicfilter", "buttonMountain");
+            qucuFiiter();
+        },
+        () => {
+            document.getElementById("Mountain").remove();
+        },
+        true
+    );
+}
+
 /**---------------------------------------------------------挖空-------------------------------------------------------------- */
 
 function concealMarkButton() {
-    notionThemeToolplusAddButton(
+    odysseyThemeToolplusAddButton(
         "conceal",
-        "toolbar__item b3-tooltips b3-tooltips__se",
+        "toolbar__item b3-tooltips b3-tooltips__sw",
 		"挖空",
-        "/appearance/themes/Odyssey/img/conceal2.svg",
-        "/appearance/themes/Odyssey/img/conceal.svg",
         () => {
             loadStyle("/appearance/themes/Odyssey/style/topbar/conceal-mark.css", "conceal挖空").setAttribute("topBarcss", "conceal挖空");
         },
@@ -435,12 +596,10 @@ function concealMarkButton() {
 /**---------------------------------------------------------垂直-------------------------------------------------------------- */
 
 function tabbarVerticalButton() {
-    notionThemeToolplusAddButton(
+    odysseyThemeToolplusAddButton(
         "tabbarVertical",
-        "toolbar__item b3-tooltips b3-tooltips__se",
+        "toolbar__item b3-tooltips b3-tooltips__sw",
 		"垂直页签",
-        "/appearance/themes/Odyssey/img/vtabbar2.svg",
-        "/appearance/themes/Odyssey/img/vtabbar.svg",
         () => {
             loadStyle("/appearance/themes/Odyssey/style/topbar/tab-bar-vertical.css", "tabbar垂直").setAttribute("topBarcss", "tabbar垂直");
         },
@@ -451,6 +610,50 @@ function tabbarVerticalButton() {
     );
 }
 
+/**---------------------------------------------------------顶栏-------------------------------------------------------------- */
+
+function topbarfixedButton() {
+    odysseyThemeToolplusAddButton(
+        "topBar",
+        "toolbar__item b3-tooltips b3-tooltips__sw",
+		"隐藏顶栏",
+        () => {
+            loadStyle("/appearance/themes/Odyssey/style/topbar/top-fixed.css", "topbar隐藏").setAttribute("topBarcss", "topbar隐藏");
+        },
+        () => {
+            document.getElementById("topbar隐藏").remove();
+        },
+        true
+    );
+}
+
+/**---------------------------------------------------------子弹-------------------------------------------------------------- */
+
+function bulletThreading() {
+    odysseyThemeToolplusAddButton(
+        "bulletThreading",
+        "toolbar__item b3-tooltips b3-tooltips__sw",
+		"列表子弹线",
+        () => {
+            loadStyle("/appearance/themes/Odyssey/style/topbar/bullet-threading.css", "列表子弹线").setAttribute("bulletThreading", "列表子弹线");
+        },
+        () => {
+            document.getElementById("列表子弹线").remove();
+        },
+        true
+    );
+}
+//去除主题所有滤镜还原按钮状态
+function qucuFiiter() {
+    var Topicfilters = document.querySelectorAll("head [topicfilter]");
+    Topicfilters.forEach(element => {
+        var offNo = getItem(element.getAttribute("topicfilter"));
+        if (offNo == "1") {
+            document.getElementById(element.getAttribute("topicfilter")).click();
+            element.remove();
+        }
+    });
+}																		
 
 
 
@@ -845,6 +1048,19 @@ function isSiyuanFloatingWindow(element) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 //+++++++++++++++++++++++++++++++++思源API++++++++++++++++++++++++++++++++++++
 //思源官方API文档  https://github.com/siyuan-note/siyuan/blob/master/API_zh_CN.md
 
@@ -961,44 +1177,75 @@ async function 写入文件(path, filedata, then = null, obj = null, isDir = fal
  * @param {*} OffClickRunFun 按钮关闭执行函数
  * @param {*} Memory 是否设置记忆状态 true为是留空或false为不设置记忆状态。
  */
-
-
-
-function notionThemeToolplusAddButton(ButtonID, ButtonTitle, ButtonLabel, NoButtonSvgURL, OffButtonSvgURL, NoClickRunFun, OffClickRunFun, Memory) {
-    var notionToolplus = document.getElementById("notionToolplus");
-    if (notionToolplus == null) {
+function odysseyThemeToolbarAddButton(ButtonID, ButtonTitle , ButtonLabel, Mode, NoClickRunFun, OffClickRunFun, Memory) {
+    var odysseyToolbar = document.getElementById("odysseyToolbar");
+    if (odysseyToolbar == null) {
         var toolbarEdit = document.getElementById("toolbarEdit");
-        var windowControls = document.getElementById("barSearch");
+        var windowControls = document.getElementById("windowControls");
 
         if (toolbarEdit == null && windowControls != null) {
-            notionToolplus = document.createElement("div");
-            notionToolplus.id = "notionToolplus";
-            windowControls.parentElement.insertBefore(notionToolplus, barSearch);
+            odysseyToolbar = document.createElement("div");
+            odysseyToolbar.id = "odysseyToolbar";
+            windowControls.parentElement.insertBefore(odysseyToolbar, windowControls);
         } else if (toolbarEdit != null) {
-            notionToolplus = insertCreateBefore(toolbarEdit, "div", "notionToolplus");
-            notionToolplus.style.position = "relative";
+            odysseyToolbar = insertCreateBefore(toolbarEdit, "div", "odysseyToolbar");
+            odysseyToolbar.style.position = "relative";
         }
     }
 
-    var addButton = addinsertCreateElement(notionToolplus, "div");
+    var addButton = addinsertCreateElement(odysseyToolbar, "div");
     addButton.style.float = "top";
-    addButton.style.backgroundImage = "url(" + OffButtonSvgURL + ")";
-    addButton.style.backgroundRepeat = "no-repeat";
-	addButton.style.backgroundPosition = "left";
 
 
     
     addButton.id = ButtonID;
-	addButton.setAttribute("class", ButtonTitle);
+	addButton.setAttribute("class", ButtonTitle + " button_off");
 	addButton.setAttribute("aria-label", ButtonLabel)
 	
 
-	var offNo = '0';
+    if (window.theme.themeMode == Mode) {
+        var offNo = '0';
 
+
+        
+        // 如果主题是暗色主题，默认选中样式
+        if (Mode == 'dark'){
+            if (Memory == true) {
+			offNo = getItem(ButtonID);
+			if (offNo == "1") {
+				addButton.setAttribute("class", ButtonTitle + " button_on");
+				setItem(ButtonID, "0");
+				NoClickRunFun(addButton);
+				setItem(ButtonID, "1");
+			} else if (offNo != "0") {
+				offNo = "0";
+				setItem(ButtonID, "0");
+			}
+    }
+
+    AddEvent(addButton, "click", () => {
+
+        if (offNo == "0") {
+			addButton.setAttribute("class", ButtonTitle + " button_on");
+            NoClickRunFun(addButton);
+            if (Memory != null) setItem(ButtonID, "1");
+            offNo = "1";
+            return;
+        }
+
+        if (offNo == "1") {
+			addButton.setAttribute("class", ButtonTitle + " button_off");
+            OffClickRunFun(addButton);
+            if (Memory != null) setItem(ButtonID, "0");
+            offNo = "0";
+            return;
+        }
+    });
+        } else {
     if (Memory == true) {
         offNo = getItem(ButtonID);
         if (offNo == "1") {
-            addButton.style.backgroundImage = "url(" + NoButtonSvgURL + ")";
+			addButton.setAttribute("class", ButtonTitle + " button_on");
             setItem(ButtonID, "0");
             NoClickRunFun(addButton);
             setItem(ButtonID, "1");
@@ -1008,12 +1255,10 @@ function notionThemeToolplusAddButton(ButtonID, ButtonTitle, ButtonLabel, NoButt
         }
     }
 
-
     AddEvent(addButton, "click", () => {
 
         if (offNo == "0") {
-            addButton.style.backgroundImage = "url(" + NoButtonSvgURL + ")";
-
+			addButton.setAttribute("class", ButtonTitle + " button_on");
             NoClickRunFun(addButton);
             if (Memory != null) setItem(ButtonID, "1");
             offNo = "1";
@@ -1021,8 +1266,73 @@ function notionThemeToolplusAddButton(ButtonID, ButtonTitle, ButtonLabel, NoButt
         }
 
         if (offNo == "1") {
-            addButton.style.backgroundImage = "url(" + OffButtonSvgURL + ")";
-            addButton.style.filter = "none";
+			addButton.setAttribute("class", ButtonTitle + " button_off");
+            OffClickRunFun(addButton);
+            if (Memory != null) setItem(ButtonID, "0");
+            offNo = "0";
+            return;
+        }
+    })
+   }
+    }
+
+}
+
+
+function odysseyThemeToolplusAddButton(ButtonID, ButtonTitle, ButtonLabel, NoClickRunFun, OffClickRunFun, Memory) {
+    var odysseyToolplus = document.getElementById("odysseyToolbar");
+    if (odysseyToolplus == null) {
+        var toolbarEdit = document.getElementById("toolbarEdit");
+        var windowControls = document.getElementById("windowControls");
+
+        if (toolbarEdit == null && windowControls != null) {
+            odysseyToolplus = document.createElement("div");
+            odysseyToolplus.id = "odysseyToolbar";
+            windowControls.parentElement.insertBefore(odysseyToolplus, windowControls);
+        } else if (toolbarEdit != null) {
+            odysseyToolplus = insertCreateBefore(toolbarEdit, "div", "odysseyToolbar");
+            odysseyToolplus.style.position = "relative";
+        }
+    }
+
+    var addButton = addinsertCreateElement(odysseyToolbar, "div");
+    addButton.style.float = "top";
+
+
+    
+    addButton.id = ButtonID;
+	addButton.setAttribute("class", ButtonTitle + " button_off");
+	addButton.setAttribute("aria-label", ButtonLabel)
+	
+
+	var offNo = '0';
+
+
+    if (Memory == true) {
+        offNo = getItem(ButtonID);
+        if (offNo == "1") {
+			addButton.setAttribute("class", ButtonTitle + " button_on");
+            setItem(ButtonID, "0");
+            NoClickRunFun(addButton);
+            setItem(ButtonID, "1");
+        } else if (offNo != "0") {
+            offNo = "0";
+            setItem(ButtonID, "0");
+        }
+    }
+
+    AddEvent(addButton, "click", () => {
+
+        if (offNo == "0") {
+			addButton.setAttribute("class", ButtonTitle + " button_on");
+            NoClickRunFun(addButton);
+            if (Memory != null) setItem(ButtonID, "1");
+            offNo = "1";
+            return;
+        }
+
+        if (offNo == "1") {
+			addButton.setAttribute("class", ButtonTitle + " button_off");
             OffClickRunFun(addButton);
             if (Memory != null) setItem(ButtonID, "0");
             offNo = "0";
@@ -1297,10 +1607,10 @@ function loadScript(url, type = 'module') {
 function getSiYuanToolbar() { return document.getElementById("toolbar"); }
 
 /**
- * 得到notionToolbar
+ * 得到odysseyToolbar
  * @returns 
  */
-function getnotionToolbar() { return document.getElementById("notionToolbar"); }
+function getodysseyToolbar() { return document.getElementById("odysseyToolbar"); }
 
 /**简单判断目前思源是否是pc窗口模式 */
 function isPcWindow() {
@@ -1309,7 +1619,7 @@ function isPcWindow() {
 
 /**简单判断目前思源是否是手机模式 */
 function isPhone() {
-    return document.getElementById("toolbarEdit") != null && document.getElementById("toolbar") == null;
+    return document.getElementById("editor") ;
 }
 
 
@@ -1725,11 +2035,56 @@ function getcommonMenu_Bolck() {
 /**++++++++++++++++++++++++++++++++按需调用++++++++++++++++++++++++++++++ */
 获取文件("/data/snippets/Odyssey.config.json", (v) => {
     let funs = () => {
+
 		setTimeout(() => {
-               
+
+			if (isPhone()) {
+
+				loadStyle("/appearance/themes/Odyssey/style/module/mobile.css")
+
+				console.log("==============>附加CSS和特性JS_已经执行<==============");
+            } else {
+				const htmlTag = document.querySelector('html');
+				
+                const themeMode = htmlTag.getAttribute('data-theme-mode');
+				
+				if (themeMode == 'light') {
+                    loadFlower = getItem('buttonFlower');
+					loadWind = getItem('buttonWind');
+                    if (loadFlower == '1') {
+                        loadStyle(
+                            '/appearance/themes/Odyssey/style/topbar/flower.css',
+                            'Flower主题'
+                        ).setAttribute('topicfilter', 'buttonFlower');
+                    }
+					if (loadWind == '1') {
+                        loadStyle(
+                            '/appearance/themes/Odyssey/style/topbar/wind.css',
+                            'Wind主题'
+                        ).setAttribute('topicfilter', 'buttonWind');
+                    }
+
+                }
+				if (themeMode == 'dark') {
+					loadMountain = getItem('buttonMountain');
+                    if (loadMountain == '1') {
+                        loadStyle(
+                            '/appearance/themes/Odyssey/style/topbar/mountain.css',
+                            'Mountain主题'
+                        ).setAttribute('topicfilter', 'buttonMountain');
+                    }
+                }
+				
+                    
+                themeButton();//主题
+                            
                 concealMarkButton();//挖空
                 
                 tabbarVerticalButton();//垂直页签
+				
+				topbarfixedButton();//顶栏悬浮
+				
+				bulletThreading();//子弹线
  
                 setTimeout(() => ClickMonitor(), 3000);//各种列表转xx
 
@@ -1739,9 +2094,8 @@ function getcommonMenu_Bolck() {
 
                 collapseExpand_Head_List()//鼠标中键标题、列表文本折叠/展开
 
-
                 console.log("==============>附加CSS和特性JS_已经执行<==============");
-          
+            }
         }, 1000);
     };
     if (v == null) {
@@ -1793,4 +2147,57 @@ window.theme.loadScript = function (src, type = 'module', async = false, defer =
 	script.setAttribute('src', src);
 	document.head.appendChild(script);
 };
+
+
+
+
+/**
+ * 获得指定块位于的编辑区
+ * @params {HTMLElement}
+ * @return {HTMLElement} 光标所在块位于的编辑区
+ * @return {null} 光标不在块内
+ */
+function getTargetEditor(block) {
+    while (block != null && !block.classList.contains('protyle-wysiwyg')) block = block.parentElement;
+    return block;
+}
+
+/**
+ * 获得焦点所在的块
+ * @return {HTMLElement} 光标所在块
+ * @return {null} 光标不在块内
+ */
+function getFocusedBlock() {
+    if (document.activeElement.classList.contains('protyle-wysiwyg')) {
+        let block = window.getSelection()?.focusNode?.parentElement; // 当前光标
+        while (block != null && block.dataset.nodeId == null) block = block.parentElement;
+        return block;
+    }
+}
+
+function focusHandler() {
+    /* 获取当前编辑区 */
+    let block = getFocusedBlock(); // 当前光标所在块
+    /* 当前块已经设置焦点 */
+    if (block?.classList.contains(`block-focus`)) return;
+
+    /* 当前块未设置焦点 */
+    const editor = getTargetEditor(block); // 当前光标所在块位于的编辑区
+    if (editor) {
+        editor.querySelectorAll(`.block-focus`).forEach((element) => element.classList.remove(`block-focus`));
+        block.classList.add(`block-focus`);
+        // setSelector(block);
+    }
+}
+
+function bulletMain() {
+    // 跟踪当前所在块
+    window.addEventListener('mouseup', focusHandler, true);
+    window.addEventListener('keyup', focusHandler, true);
+}
+
+(async () => {
+    bulletMain();
+    console.log('加载子弹线成功')
+})();
 

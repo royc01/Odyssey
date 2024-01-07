@@ -4,7 +4,6 @@
     border-left: 0.25em solid var(--b3-theme-on-background);
 	border-radius:0 3px 3px 0;
     background-color: var(--b3-bq-background);
-	margin-right:4px;
 }
 .protyle-wysiwyg .bq .p{
 	padding-left:10px;
@@ -12,6 +11,85 @@
 .list .bq {
 	margin-right:0px!important;
 }/*列表里代码块对齐*/
+
+.bq[style*="background1)"]{
+	border: none;
+    background-color: var(--b3-bq-background1)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background1) inset;
+}
+.bq[style*="background2"]{
+	border: none;
+    background-color: var(--b3-bq-background2)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background2) inset;
+}
+.bq[style*="background3"]{
+	border: none;
+    background-color: var(--b3-bq-background3)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background3) inset;
+}
+.bq[style*="background4"]{
+	border: none;
+    background-color: var(--b3-bq-background4)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background4) inset;
+}
+.bq[style*="background5"]{
+	border: none;
+    background-color: var(--b3-bq-background5)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background5) inset;
+}
+.bq[style*="background6"]{
+	border: none;
+    background-color: var(--b3-bq-background6)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background6) inset;
+}
+.bq[style*="background7"]{
+	border: none;
+    background-color: var(--b3-bq-background7)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background7) inset;
+}
+.bq[style*="background8"]{
+	border: none;
+    background-color: var(--b3-bq-background8)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background8) inset;
+}
+.bq[style*="background9"]{
+	border: none;
+    background-color: var(--b3-bq-background9)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background9) inset;
+}
+.bq[style*="background10"]{
+	border: none;
+    background-color: var(--b3-bq-background10)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background10) inset;
+}
+.bq[style*="background11"]{
+	border: none;
+    background-color: var(--b3-bq-background11)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background11) inset;
+}
+.bq[style*="background12"]{
+	border: none;
+    background-color: var(--b3-bq-background12)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background12) inset;
+}
+.bq[style*="background13"]{
+	border: none;
+    background-color: var(--b3-bq-background13)!important;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px var(--b3-font-background13) inset;
+}
 /*引述callout第一行样式 */
 .bq[custom-b~=error] .p:first-child,
 .bq[custom-b~=error][data-type="NodeHeading"]:first-child,
@@ -105,15 +183,12 @@
 }
 
 .bq[custom-b~=error]::after {
-    content: "";
+    content: "🚫";
     position: absolute;
-	top: 0.9em;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/prohibited.png);
-	background-size: 100% 100%;
+	font-size:1.5em
 }
 /*警告*/
 .protyle-wysiwyg [data-node-id][custom-b~=warn].bq{
@@ -124,15 +199,12 @@
 }
 
 .bq[custom-b~=warn]::after {
-    content: "";
+    content: "⚠";
     position: absolute;
-	top: 0.9em;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/warning.png);
-	background-size: 100% 100%;
+	font-size:1.5em
 }
 /*bug*/
 .protyle-wysiwyg [data-node-id][custom-b~=bug].bq{
@@ -143,15 +215,12 @@
 }
 
 .bq[custom-b~=bug]::after {
-    content: "";
-    position: absolute;
-	top: 0.9em;
+    content: "🐛";
+	position: absolute;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/bug.png);
-	background-size: 100% 100%;
+	font-size:1.5em
 }
 /*正确*/
 .protyle-wysiwyg [data-node-id][custom-b~=check].bq{
@@ -162,15 +231,12 @@
 }
 
 .bq[custom-b~=check]::after {
-    content: "";
-    position: absolute;
-	top: 0.9em;
+    content: "✅";
+	position: absolute;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/check.png);
-	background-size: 100% 100%;
+	font-size:1.5em
 }
 /*灵感*/
 .protyle-wysiwyg [data-node-id][custom-b~=light].bq{
@@ -181,15 +247,12 @@
 }
 
 .bq[custom-b~=light]::after {
-    content: "";
-    position: absolute;
-	top: 0.9em;
+    content: "💡";
+	position: absolute;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/light-bulb.png);
-	background-size: 100% 100%;
+	font-size:1.5em
 }
 /*问题*/
 .protyle-wysiwyg [data-node-id][custom-b~=question].bq{
@@ -200,15 +263,12 @@
 }
 
 .bq[custom-b~=question]::after {
-    content: "";
-    position: absolute;
-	top: 0.9em;
+    content: "❓";
+	position: absolute;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/question.png);
-	background-size: 100% 100%;
+	font-size:1.5em
 }
 /*错误*/
 .protyle-wysiwyg [data-node-id][custom-b~=wrong].bq{
@@ -219,15 +279,12 @@
 }
 
 .bq[custom-b~=wrong]::after {
-    content: "";
-    position: absolute;
-	top: 0.9em;
+    content: "❌";
+	position: absolute;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/cross.png);
-	background-size: 100% 100%;
+	font-size:1.5em
 }
 /*信息*/
 .protyle-wysiwyg [data-node-id][custom-b~=info].bq{
@@ -238,15 +295,12 @@
 }
 
 .bq[custom-b~=info]::after {
-    content: "";
-    position: absolute;
-	top: 0.9em;
+    content: "ℹ";
+	position: absolute;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/info.png);
-	background-size: 100% 100%;
+	font-size:1.5em;
 }
 /*记录*/
 .protyle-wysiwyg [data-node-id][custom-b~=pen].bq{
@@ -257,15 +311,12 @@
 }
 
 .bq[custom-b~=pen]::after {
-    content: "";
-    position: absolute;
-	top: 0.9em;
+    content: "🖋";
+	position: absolute;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/pen.png);
-	background-size: 100% 100%;
+	font-size:1.5em
 }
 /*汇总*/
 .protyle-wysiwyg [data-node-id][custom-b~=note].bq{
@@ -276,15 +327,12 @@
 }
 
 .bq[custom-b~=note]::after {
-    content: "";
-    position: absolute;
-	top: 0.9em;
+    content: "📓";
+	position: absolute;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/notebook.png);
-	background-size: 100% 100%;
+	font-size:1.5em
 }
 /*提醒*/
 .protyle-wysiwyg [data-node-id][custom-b~=bell].bq{
@@ -295,13 +343,10 @@
 }
 
 .bq[custom-b~=bell]::after {
-    content: "";
-    position: absolute;
-	top: 0.9em;
+    content: "🔔";
+	position: absolute;
+	top: 0.12em;
 	left:0.2em;
 	margin-left:10px;
-	width: 1.5em;
-    height: 1.5em;
-	background-image: url(/appearance/themes/Savor/img/callout/bell.png);
-	background-size: 100% 100%;
+	font-size:1.5em
 }
