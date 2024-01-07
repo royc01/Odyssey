@@ -28,6 +28,7 @@
     ]
   },
   "modes": [
-    "light"
+    "light",
+	"dark"
   ]
 }
