@@ -42,7 +42,8 @@
 	border-radius: 9px;
 }
 .dock#dockLeft .dock__item:hover,
-.dock#dockRight .dock__item:hover{
+.dock#dockRight .dock__item:hover,
+.dock#dockBottom .dock__item:hover{
 	background-color: var(--O-dock-item-hover-background);
 	color:var(--b3-theme-background);
 	transition: all 300ms;
@@ -56,45 +57,28 @@
 
 /* 底dock栏 */
 .dock#dockBottom{
+	padding: 0 30px;
 	border-top:none;
-	height: unset;
-	padding: 0 40px;
-	background-color: var(--O-toolbar-background);
 }
-
+.layout__dockb .fn__flex{
+	border-radius: 16px;
+}
 #dockBottom .dock__item{
-	margin: 0 7px 7px 0;
-	padding: 6px 7px;
+	color: var(--O-dock-color);
 	height: 14px;
 }
 .dock#dockBottom .dock__item--active{
-	color: var(--b3-theme-on-background);
+	color: var(--b3-theme-background);
     background-color: var(--O-dockleft-item-active-background);
-    box-shadow: 0 4px 9px rgba(0,0,0,.05), 0 1.5px 2.8px rgba(0,0,0,.07), 0 0.3px 0.7px rgba(0,0,0,.12);
 }
 .dock#dockBottom .dock__item:hover{
     background-color: var(--O-dock-item-hover-background);
     transition: all 300ms;
-    box-shadow: 0 4px 9px rgba(0,0,0,.05), 0 1.5px 2.8px rgba(0,0,0,.07), 0 0.3px 0.7px rgba(0,0,0,.12);
 }
 
 .layout__dockb.layout--float{
-	bottom:74px!important;
-	margin-left:41px;
-	margin-right:41px;
-	border-radius:6px;
-	overflow:hidden;
+	margin-left:34px;
+	margin-right:34px;
+	border-radius: 16px;
 	box-shadow: 0 4px 9px rgba(0,0,0,.05), 0 1.5px 2.8px rgba(0,0,0,.07), 0 0.3px 0.7px rgba(0,0,0,.12);
-}
-.layout__dockb.layout--float[style*="bottom: 26px"]{
-	bottom:8px!important;
-	margin-left:8px;
-	margin-right:8px;
-}
-.layout__dockb.layout--float[style*="bottom: 59px"]{
-	bottom:40px!important;
-}
-#dockLeft.fn__none + .layout .layout__dockb.layout--float[style*="bottom: 59px"]{
-	margin-left:8px;
-	margin-right:8px;
 }

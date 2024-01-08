@@ -337,6 +337,6 @@
 	background:var(--O-Forest-off);
 }
 
-.b3-list-item__icon,.b3-list-item__text,.b3-list-item__graphic{
+.b3-list-item{
     filter: grayscale(50%);
 }
