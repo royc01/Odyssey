@@ -5,9 +5,9 @@
     --b3-theme-primary-lighter: rgba(184, 229, 63, 0.38);
     --b3-theme-primary-lightest: rgba(184, 229, 63, 0.2);
     --b3-theme-secondary: #f3a92f;
-    --b3-theme-background: #101628;/* 编辑区背景 */
+    --b3-theme-background: #101422;/* 编辑区背景 */
 	--b3-theme-background-light: rgba(230, 230, 230, .1);
-    --b3-theme-surface:#0b1122;/* 面板主色 */
+    --b3-theme-surface:#101420;/* 面板主色 */
 	--b3-theme-surface-light: rgba(41, 42, 45, .86);
 	--b3-theme-surface-lighter:rgba(230, 230, 230, .06);
     --b3-theme-error: #e35555;
@@ -162,7 +162,7 @@
 	
 	/* 自定义结构配色 */
 	/* 顶栏 */
-	--O-toolbar-background: #151c32;
+	--O-toolbar-background: #181c2b;
 	--O-toolbar-blur-background: transparent;
 	--O-toolbar-item-hover: rgba(255, 255, 255, 0.1);
 	--O-toolbar-closeWindow-hover: #e81123;
@@ -215,7 +215,7 @@
 
 	/* 页签 */
 	--O-item-focus: rgba(255, 255, 255 ,0.2);
-    --O-tabbar-background: #1c243d;
+    --O-tabbar-background: #181c2b;
 
 	/* 面包屑 */
 	--O-protyle-breadcrumb-arrow: rgba(174,172,166);
