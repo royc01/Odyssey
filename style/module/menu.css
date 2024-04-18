@@ -222,46 +222,55 @@
 div#historyContainer{
 	border-top:1px solid var(--b3-border-color);
 }
-.bazaarPanel .counter{
+.config-bazaar__panel .counter{
 	background-color:var(--O-list-background)!important;
 }
 /*已下载页面*/
-.bazaarPanel[data-type="downloaded"] .fn__flex>.fn__space:first-child{
+.config-bazaar__panel[data-type="downloaded"] .fn__flex>.fn__space:first-child{
 	width: 11px;
 }
 
-.bazaarPanel[data-type="downloaded"] .b3-button{
+.config-bazaar__panel[data-type="downloaded"] .b3-button{
 	background-color:var(--O-list-background);
-	height:20px;
+	height:24px;
 	margin-top:4px;
 	padding: 4px 6px;
 	clip-path: inset(-4px );
 	box-shadow: 0 0 0 50px var(--O-list-background);
 	transition:none;
+	color:var(--b3-theme-on-background);
+	font-weight: 500;
 }
-.bazaarPanel[data-type="downloaded"] [data-type="myPlugin"]{
+.config-bazaar__panel[data-type="downloaded"] [data-type="myPlugin"]{
 	clip-path: inset(-4px round 10px 0 0 10px);
 }
 
-.bazaarPanel[data-type="downloaded"] [data-type="myWidget"]{
+.config-bazaar__panel[data-type="downloaded"] [data-type="myWidget"]{
 	clip-path: inset(-4px round 0 10px 10px 0);
 }
 
-.bazaarPanel[data-type="downloaded"] .b3-button:not(.b3-button--outline){
+.config-bazaar__panel[data-type="downloaded"] .b3-button:not(.b3-button--outline){
 	background-color:var(--b3-theme-background);
 	color:var(--b3-theme-on-background);
-	font-weight: 500;
+	font-weight: 700;
 	box-shadow: 0 4px 9px rgba(0,0,0,.05), 0 1.5px 2.8px rgba(0,0,0,.07), 0 0.3px 0.7px rgba(0,0,0,.12),0 0 0 50px var(--O-list-background);
+}
+.config-bazaar__panel[data-type="downloaded"] .b3-button[data-type="install-all"]{
+	box-shadow: 0 4px 9px rgba(0,0,0,.05), 0 1.5px 2.8px rgba(0,0,0,.07), 0 0.3px 0.7px rgba(0,0,0,.12);
+	margin-top: 0px;
+	background-color: #ee6f5b;
+	color: #fff;
+}
+.config-bazaar__panel [data-type="myWidget"] ~ .b3-form__icon .b3-text-field{
+	padding: 6px 8px;
+}
+.config-bazaar__panel [data-type="myWidget"] ~ .b3-form__icon .b3-form__icon-icon{
+	top: 8px;
 }
 [data-type="myWidget"]+.fn__space{
 	width: 16px;
 }
-#configBazaarDownloaded>.fn__flex{
-	margin-top: -46px;
-	margin-right:76px;
-	width:50px;
-	float:right;
-}
+
 /*登录页面*/
 .config-account__center{
 	background-color:transparent;
@@ -292,6 +301,12 @@ div#historyContainer{
 	margin: 2px 8px;
 }
 /*集市悬浮样式*/
+.b3-cards{
+	margin-top: 2px;
+}
+#configBazaarDownloaded{
+	margin-top: -13px;
+}
 .b3-card{
 	box-shadow: rgb(15 15 15 / 10%) 0px 0px 0px 1px, rgb(15 15 15 / 10%) 0px 2px 4px;
 	border:none;

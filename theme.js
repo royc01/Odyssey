@@ -144,7 +144,6 @@ function SubMenu(selectid,selecttype){
     node.appendChild(GraphView(selectid))
     node.appendChild(TableView(selectid))
 	node.appendChild(kanbanView(selectid))
-	node.appendChild(progressView(selectid))
     node.appendChild(DefaultView(selectid))
   }
   if(selecttype=="NodeTable"){
@@ -202,17 +201,6 @@ function kanbanView(selectid){
   button.setAttribute("custom-attr-value","kb")
 
   button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">转换为看板</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function progressView(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","f")
-  button.setAttribute("custom-attr-value","progress")
-
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">进度条任务</span>`
   button.onclick=ViewMonitor
   return button
 }
@@ -457,7 +445,7 @@ function MenuShow() {
 
 
 function InsertMenuItem(selectid,selecttype){
-  let commonMenu = document.querySelector(".b3-menu__items")
+  let commonMenu = document.querySelector("#commonMenu .b3-menu__items")
   let  readonly = commonMenu.querySelector(".b3-menu__item--readonly")
   let  selectview = commonMenu.querySelector('[id="viewselect"]')
   if(readonly){
@@ -511,11 +499,11 @@ function themeButton() {
 		"Forest",
 		'light',
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/forest.css", "Forest").setAttribute("topicfilter", "buttonForest");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/forest.css", "theme-color-style-Forest").setAttribute("topicfilter", "buttonForest");
             qucuFiiter();
         },
         () => {
-            document.getElementById("Forest").remove();
+            document.getElementById("theme-color-style-Forest").remove();
         },
         true
     );
@@ -525,11 +513,11 @@ function themeButton() {
 		"Flower",
 		'light',
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/flower.css", "Flower").setAttribute("topicfilter", "buttonFlower");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/flower.css", "theme-color-style-Flower").setAttribute("topicfilter", "buttonFlower");
             qucuFiiter();
         },
         () => {
-            document.getElementById("Flower").remove();
+            document.getElementById("theme-color-style-Flower").remove();
         },
         true
     );
@@ -539,11 +527,11 @@ function themeButton() {
 		"Wind",
 		'light',
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/wind.css", "Wind").setAttribute("topicfilter", "buttonsugar");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/wind.css", "theme-color-style-Wind").setAttribute("topicfilter", "buttonsugar");
             qucuFiiter();
         },
         () => {
-            document.getElementById("Wind").remove();
+            document.getElementById("theme-color-style-Wind").remove();
         },
         true
     );
@@ -553,11 +541,11 @@ function themeButton() {
 		"Ocean",
 		'dark',
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/ocean.css", "Ocean").setAttribute("topicfilter", "buttonOcean");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/ocean.css", "theme-color-style-Ocean").setAttribute("topicfilter", "buttonOcean");
             qucuFiiter();
         },
         () => {
-            document.getElementById("Ocean").remove();
+            document.getElementById("theme-color-style-Ocean").remove();
         },
         true
     );
@@ -567,11 +555,11 @@ function themeButton() {
 		"Mountain",
 		'dark',
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/mountain.css", "Mountain").setAttribute("topicfilter", "buttonMountain");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/mountain.css", "theme-color-style-Mountain").setAttribute("topicfilter", "buttonMountain");
             qucuFiiter();
         },
         () => {
-            document.getElementById("Mountain").remove();
+            document.getElementById("theme-color-style-Mountain").remove();
         },
         true
     );
@@ -585,10 +573,10 @@ function concealMarkButton() {
         "toolbar__item b3-tooltips b3-tooltips__sw",
 		"挖空",
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/conceal-mark.css", "conceal挖空").setAttribute("topBarcss", "conceal挖空");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/conceal-mark.css", "theme-color-style-conceal挖空").setAttribute("topBarcss", "conceal挖空");
         },
         () => {
-            document.getElementById("conceal挖空").remove();
+            document.getElementById("theme-color-style-conceal挖空").remove();
         },
         true
     );
@@ -601,10 +589,10 @@ function tabbarVerticalButton() {
         "toolbar__item b3-tooltips b3-tooltips__sw",
 		"垂直页签",
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/tab-bar-vertical.css", "tabbar垂直").setAttribute("topBarcss", "tabbar垂直");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/tab-bar-vertical.css", "theme-color-style-tabbar垂直").setAttribute("topBarcss", "tabbar垂直");
         },
         () => {
-            document.getElementById("tabbar垂直").remove();
+            document.getElementById("theme-color-style-tabbar垂直").remove();
         },
         true
     );
@@ -618,10 +606,10 @@ function topbarfixedButton() {
         "toolbar__item b3-tooltips b3-tooltips__sw",
 		"隐藏顶栏",
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/top-fixed.css", "topbar隐藏").setAttribute("topBarcss", "topbar隐藏");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/top-fixed.css", "theme-color-style-topbar隐藏").setAttribute("topBarcss", "topbar隐藏");
         },
         () => {
-            document.getElementById("topbar隐藏").remove();
+            document.getElementById("theme-color-style-topbar隐藏").remove();
         },
         true
     );
@@ -635,10 +623,10 @@ function bulletThreading() {
         "toolbar__item b3-tooltips b3-tooltips__sw",
 		"列表子弹线",
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/bullet-threading.css", "列表子弹线").setAttribute("bulletThreading", "列表子弹线");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/bullet-threading.css", "theme-color-style-列表子弹线").setAttribute("bulletThreading", "列表子弹线");
         },
         () => {
-            document.getElementById("列表子弹线").remove();
+            document.getElementById("theme-color-style-列表子弹线").remove();
         },
         true
     );
@@ -2113,44 +2101,6 @@ function getcommonMenu_Bolck() {
 
 
 
-
-/*任务列表进度条*/
-
-let ws = siyuan.ws.ws
-ws.addEventListener("message", (msg) => {
-    if(msg&&msg.data&&msg.data){
-        if(JSON.parse(msg.data).cmd=="transactions"){
-            document.querySelectorAll(`.protyle-wysiwyg [data-node-id].list[custom-f="progress"]`).forEach(
-                list => {
-                    let checked = list.querySelectorAll(`:scope > div.protyle-task--done`).length
-                    let total = list.querySelectorAll(`:scope > div[data-subtype="t"]`).length
-                    let strong = list.querySelector(`.protyle-attr`)
-					let number = Math.round(checked / total * 100)
-                    console.log(strong,checked, total)
-                    strong?strong.setAttribute("style", `--progress : ${checked / total * 100}%`):null
-					strong?strong.setAttribute("value", number ):null
-                }
-            )
-        
-        }
-    }
-}
-)
-
-
-
-window.theme.loadScript = function (src, type = 'module', async = false, defer = false) {
-	let script = document.createElement('script');
-	if (type) script.setAttribute('type', type);
-	if (async) script.setAttribute('async', true);
-	if (defer) script.setAttribute('defer', true);
-	script.setAttribute('src', src);
-	document.head.appendChild(script);
-};
-
-
-
-
 /**
  * 获得指定块位于的编辑区
  * @params {HTMLElement}
@@ -2200,4 +2150,22 @@ function bulletMain() {
     bulletMain();
     console.log('加载子弹线成功')
 })();
+
+
+
+
+
+/** 清除样式 **/
+
+window.destroyTheme = () => { 
+    // 删除主题加载的额外样式
+    var Oremove = document.querySelectorAll('[id^="theme-color-style"]');  
+    Oremove.forEach(function(Oremove) {  
+        Oremove.parentNode.removeChild(Oremove);  
+    }); 
+    // 删除切换按钮
+	document.querySelector("#odysseyToolbar").remove();
+	// 删除列表转导图功能
+    window.removeEventListener('mouseup', MenuShow);
+};
 
