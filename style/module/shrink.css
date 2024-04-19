@@ -19,7 +19,7 @@
 	padding-top:7px;
 }
 /*面板标题图标*/
-.block__logo svg{
+.block__logo:not([data-type="back"]) svg{
 	display: none;
 }
 .block__logo{

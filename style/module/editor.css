@@ -430,7 +430,7 @@
 .export-img span[data-type="tag"]::before{
 	content: "";
 }
-.protyle-wysiwyg span[data-type="tag"]:first-child:before{
+.protyle-wysiwyg span[data-type="tag"]::before{
 	content: "#";
 }
 /*块引用*/

@@ -9,7 +9,6 @@
 }
 .fn__flex:not(.av__views) > .layout-tab-bar{
 	padding: 0 4px 0 4px;
-	box-shadow: -1px 0px 0px 0px var(--b3-layout-resize) inset;
 	margin:0;
 	border-bottom: none;
 }

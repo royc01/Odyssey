@@ -698,3 +698,8 @@ body.body--win32 .fullscreen>.protyle-breadcrumb{
 	height: 26px;
 
 }
+
+
+#configBazaarDownloaded .b3-list--empty{
+	padding-top: 20px;
+}
