@@ -3,7 +3,7 @@
 #status {
     background-color: var(--O-toolbar-background);
 	border: none;
-	padding: 0 3px;
+	padding: 0 4px;
 }
 
 .status__msg:not(:empty):before{

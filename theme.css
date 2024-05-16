@@ -487,9 +487,7 @@ span[data-type="add"] svg{
 .av__header .layout-tab-bar .item__graphic{
 	padding: 6px 4px 4px 7px;
 }
-.av__views .block__icon svg{
-	width: 14px;
-}
+
 [data-type="av-search-icon"] +div{
 	font-size: 90%;
 }
@@ -574,7 +572,7 @@ span[data-type="add"] svg{
 	color:var(--S-font-color2)!important;
 }
 .custom-attr__avvalue .b3-chip[style*="color13)"],.av__cell .b3-chip[style*="color13)"],.av__panel .b3-chip[style*="color13)"],[data-name="av-col-option"] .color__square[style*="color13)"]{
-	background-color:var(--b3-font-background1)!important;
+	background-color:transparent!important;
 	color:var(--S-font-color1)!important;
 }
 

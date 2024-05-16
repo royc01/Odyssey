@@ -198,6 +198,13 @@
 .sb[fold="1"] .h5,.sb[fold="1"] .h6{
 	margin-top: 0em;
 }
+.bq > .h1,.bq > .h2,
+.bq > .h3,.bq > .h4,
+.bq > .h5,.bq > .h6{
+	margin-top: 0em!important;
+    margin-bottom: 0.2em!important;
+	padding-left: 12px;
+}
 .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h1,
 .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h2,
 .protyle-wysiwyg [data-node-id].li > .protyle-action ~ .h3,

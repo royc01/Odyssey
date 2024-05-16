@@ -360,4 +360,13 @@ v.sy__backlink .protyle-wysiwyg .protyle-breadcrumb__bar{
 	margin-left:-1px;
 	top: 0px;
 	height:100%;
+}*/
+
+
+.layout__dockl.layout--float{
+	margin-left:5px;
+}
+
+.layout__dockr.layout--float{
+	margin-right:5px;
 }
