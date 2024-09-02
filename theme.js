@@ -122,288 +122,155 @@ window.theme.changeThemeMode(
 
   /****UI****/
   function ViewSelect(selectid,selecttype){
-  let button = document.createElement("button")
-  button.id="viewselect"
-  button.className="b3-menu__item"
-  button.innerHTML='<svg class="b3-menu__icon" style="null"><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label" style="">视图选择</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="null"><use xlink:href="#iconRight"></use></svg></button>'
-  button.appendChild(SubMenu(selectid,selecttype))
-  return button
-}
-function SubMenu(selectid,selecttype){
-  let button = document.createElement("button")
-  button.id="viewselectSub"
-  button.className="b3-menu__submenu"
-  button.appendChild(MenuItems(selectid,selecttype))
-  return button
-}
-
-  function MenuItems(selectid,selecttype,className = 'b3-menu__items'){
-  let node = document.createElement('div');
-  node.className = className;
-  if(selecttype=="NodeList"){
-    node.appendChild(GraphView(selectid))
-    node.appendChild(TableView(selectid))
-	node.appendChild(kanbanView(selectid))
-    node.appendChild(DefaultView(selectid))
+    let button = document.createElement("button")
+    button.id="viewselect"
+    button.className="b3-menu__item"
+    button.innerHTML='<svg class="b3-menu__icon" style="null"><use xlink:href="#iconGlobalGraph"></use></svg><span class="b3-menu__label" style="">视图选择</span><svg class="b3-menu__icon b3-menu__icon--arrow" style="null"><use xlink:href="#iconRight"></use></svg></button>'
+    button.appendChild(SubMenu(selectid,selecttype))
+    return button
   }
-  if(selecttype=="NodeTable"){
-    node.appendChild(FixWidth(selectid))
-    node.appendChild(AutoWidth(selectid))
-	node.appendChild(FullWidth(selectid))
-	node.appendChild(vHeader(selectid))
-	node.appendChild(Removeth(selectid))
-	node.appendChild(Defaultth(selectid))
+  function SubMenu(selectid,selecttype){
+    let button = document.createElement("button")
+    button.id="viewselectSub"
+    button.className="b3-menu__submenu"
+    button.appendChild(MenuItems(selectid,selecttype))
+    return button
   }
-  if(selecttype=="NodeBlockquote"){
-    node.appendChild(quoteError(selectid))
-	node.appendChild(Warn(selectid))
-	node.appendChild(Bug(selectid))
-	node.appendChild(Check(selectid))
-	node.appendChild(Light(selectid))
-	node.appendChild(Question(selectid))
-	node.appendChild(Wrong(selectid))
-	node.appendChild(Info(selectid))
-	node.appendChild(Pen(selectid))
-	node.appendChild(Note(selectid))
-	node.appendChild(Bell(selectid))
-    node.appendChild(Defaultbq(selectid))	
-  }
-return node;
-}
-
-function GraphView(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","f")
-  button.setAttribute("custom-attr-value","dt")
-
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">转换为导图</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function TableView(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","f")
-  button.setAttribute("custom-attr-value","bg")
-
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">转换为表格</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function kanbanView(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","f")
-  button.setAttribute("custom-attr-value","kb")
-
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">转换为看板</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function DefaultView(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.onclick=ViewMonitor
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","f")
-  button.setAttribute("custom-attr-value",'')
-
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">恢复为列表</span>`
-  return button
-}
-function FixWidth(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.onclick=ViewMonitor
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","f")
-  button.setAttribute("custom-attr-value","")
-
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">自动宽度(换行)</span>`
-  return button
-}
-function AutoWidth(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","f")
-  button.setAttribute("custom-attr-value","auto")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">自动宽度(不换行)</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function FullWidth(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.onclick=ViewMonitor
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","f")
-  button.setAttribute("custom-attr-value","full")
-
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">页面宽度</span>`
-  return button
-}
-function vHeader(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.onclick=ViewMonitor
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","t")
-  button.setAttribute("custom-attr-value","vbiaotou")
-
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">竖向表头样式</span>`
-  return button
-}
-function Removeth(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.onclick=ViewMonitor
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","t")
-  button.setAttribute("custom-attr-value","biaotou")
-
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">空白表头样式</span>`
-  return button
-}
-function Defaultth(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","t")
-  button.setAttribute("custom-attr-value","")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">恢复表头样式</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function quoteError(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","error")
-  button.innerHTML=`<span class="b3-menu__label">🚫禁止</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Warn(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","warn")
-  button.innerHTML=`<span class="b3-menu__label">⚠警告</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Bug(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","bug")
-  button.innerHTML=`<span class="b3-menu__label">🐛bug</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Check(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","check")
-  button.innerHTML=`<span class="b3-menu__label">✅正确</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Light(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","light")
-  button.innerHTML=`<span class="b3-menu__label">💡灵感</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Question(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","question")
-  button.innerHTML=`<span class="b3-menu__label">❓问题</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Wrong(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","wrong")
-  button.innerHTML=`<span class="b3-menu__label">❌错误</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Info(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","info")
-  button.innerHTML=`<span class="b3-menu__label">ℹ信息</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Pen(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","pen")
-  button.innerHTML=`<span class="b3-menu__label">🖋记录</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Note(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","note")
-  button.innerHTML=`<span class="b3-menu__label">📓汇总</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Bell(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","bell")
-  button.innerHTML=`<span class="b3-menu__label">🔔提醒</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function Defaultbq(selectid){
-  let button = document.createElement("button")
-  button.className="b3-menu__item"
-  button.setAttribute("data-node-id",selectid)
-  button.setAttribute("custom-attr-name","b")
-  button.setAttribute("custom-attr-value","")
-  button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconRefresh"></use></svg><span class="b3-menu__label">恢复默认样式</span>`
-  button.onclick=ViewMonitor
-  return button
-}
-function MenuSeparator(className = 'b3-menu__separator') {
-  let node = document.createElement('button');
-  node.className = className;
+  
+    function MenuItems(selectid,selecttype,className = 'b3-menu__items'){
+    let node = document.createElement('div');
+    node.className = className;
+    if(selecttype=="NodeList"){
+      node.appendChild(GraphView(selectid))
+      node.appendChild(TableView(selectid))
+      node.appendChild(kanbanView(selectid))
+      node.appendChild(DefaultView(selectid))
+    }
+    if(selecttype=="NodeTable"){
+      node.appendChild(FixWidth(selectid))
+      node.appendChild(AutoWidth(selectid))
+      node.appendChild(FullWidth(selectid))
+      node.appendChild(vHeader(selectid))
+      node.appendChild(Removeth(selectid))
+      node.appendChild(Defaultth(selectid))
+    }
   return node;
-}
+  }
+  
+  function GraphView(selectid){
+    let button = document.createElement("button")
+    button.className="b3-menu__item"
+    button.setAttribute("data-node-id",selectid)
+    button.setAttribute("custom-attr-name","f")
+    button.setAttribute("custom-attr-value","dt")
+  
+    button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconFiles"></use></svg><span class="b3-menu__label">转换为导图</span>`
+    button.onclick=ViewMonitor
+    return button
+  }
+  function TableView(selectid){
+    let button = document.createElement("button")
+    button.className="b3-menu__item"
+    button.setAttribute("data-node-id",selectid)
+    button.setAttribute("custom-attr-name","f")
+    button.setAttribute("custom-attr-value","bg")
+  
+    button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">转换为表格</span>`
+    button.onclick=ViewMonitor
+    return button
+  }
+  function kanbanView(selectid){
+    let button = document.createElement("button")
+    button.className="b3-menu__item"
+    button.setAttribute("data-node-id",selectid)
+    button.setAttribute("custom-attr-name","f")
+    button.setAttribute("custom-attr-value","kb")
+  
+    button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconMenu"></use></svg><span class="b3-menu__label">转换为看板</span>`
+    button.onclick=ViewMonitor
+    return button
+  }
+  function DefaultView(selectid){
+    let button = document.createElement("button")
+    button.className="b3-menu__item"
+    button.onclick=ViewMonitor
+    button.setAttribute("data-node-id",selectid)
+    button.setAttribute("custom-attr-name","f")
+    button.setAttribute("custom-attr-value",'')
+  
+    button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconList"></use></svg><span class="b3-menu__label">恢复为列表</span>`
+    return button
+  }
+  function FixWidth(selectid){
+    let button = document.createElement("button")
+    button.className="b3-menu__item"
+    button.onclick=ViewMonitor
+    button.setAttribute("data-node-id",selectid)
+    button.setAttribute("custom-attr-name","f")
+    button.setAttribute("custom-attr-value","")
+  
+    button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">自动宽度(换行)</span>`
+    return button
+  }
+  function AutoWidth(selectid){
+    let button = document.createElement("button")
+    button.className="b3-menu__item"
+    button.setAttribute("data-node-id",selectid)
+    button.setAttribute("custom-attr-name","f")
+    button.setAttribute("custom-attr-value","auto")
+    button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">自动宽度(不换行)</span>`
+    button.onclick=ViewMonitor
+    return button
+  }
+  function FullWidth(selectid){
+    let button = document.createElement("button")
+    button.className="b3-menu__item"
+    button.onclick=ViewMonitor
+    button.setAttribute("data-node-id",selectid)
+    button.setAttribute("custom-attr-name","f")
+    button.setAttribute("custom-attr-value","full")
+  
+    button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconTable"></use></svg><span class="b3-menu__label">页面宽度</span>`
+    return button
+  }
+  function vHeader(selectid){
+    let button = document.createElement("button")
+    button.className="b3-menu__item"
+    button.onclick=ViewMonitor
+    button.setAttribute("data-node-id",selectid)
+    button.setAttribute("custom-attr-name","t")
+    button.setAttribute("custom-attr-value","vbiaotou")
+  
+    button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">竖向表头样式</span>`
+    return button
+  }
+  function Removeth(selectid){
+    let button = document.createElement("button")
+    button.className="b3-menu__item"
+    button.onclick=ViewMonitor
+    button.setAttribute("data-node-id",selectid)
+    button.setAttribute("custom-attr-name","t")
+    button.setAttribute("custom-attr-value","biaotou")
+  
+    button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">空白表头样式</span>`
+    return button
+  }
+  function Defaultth(selectid){
+    let button = document.createElement("button")
+    button.className="b3-menu__item"
+    button.setAttribute("data-node-id",selectid)
+    button.setAttribute("custom-attr-name","t")
+    button.setAttribute("custom-attr-value","")
+    button.innerHTML=`<svg class="b3-menu__icon" style=""><use xlink:href="#iconSuper"></use></svg><span class="b3-menu__label">恢复表头样式</span>`
+    button.onclick=ViewMonitor
+    return button
+  }
+  function MenuSeparator(className = 'b3-menu__separator') {
+    let node = document.createElement('button');
+    node.className = className;
+    return node;
+  }
+  
 
 /* 操作 */ 
 
@@ -436,7 +303,7 @@ function MenuShow() {
       if(selectinfo){
       let selecttype = selectinfo.type
       let selectid = selectinfo.id
-      if(selecttype=="NodeList"||selecttype=="NodeTable"||selecttype=="NodeBlockquote"){
+      if(selecttype=="NodeList"||selecttype=="NodeTable"){
         setTimeout(()=>InsertMenuItem(selectid,selecttype), 0)
       }
     }

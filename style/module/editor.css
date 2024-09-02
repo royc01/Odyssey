@@ -516,7 +516,7 @@
 .list .code-block {
 	margin-right:0px!important;
 }/*列表里代码块对齐*/
-.b3-typography div.hljs, .protyle-wysiwyg div.hljs {
+.b3-typography .code-block, .protyle-wysiwyg .code-block {
 	background-color:var(--O-code-block-hljs);
 	padding: 30px 10px 22px 10px;
 }
@@ -544,10 +544,10 @@
 .code-block .protyle-action .protyle-action__menu:hover{
 	background-color:var(--O-list-background-focus);
 }
-.protyle-linenumber__rows{
+/*.protyle-linenumber__rows{
 	background-color: var(--O-linenumber-rows);
 	padding: 30px 4px 22px 4px;
-}
+}*/
 .protyle-wysiwyg [data-node-id][fold="1"]:not(.li):not([data-type="NodeHeading"]).code-block{
 	height: 2.2em;
 }

@@ -39,6 +39,7 @@
 .protyle-breadcrumb>.protyle-breadcrumb__bar .protyle-breadcrumb__item:first-child::before{
 	content:"📄";
 	margin-right:-14px;
+	font-size: 12px;
 }
 .protyle-breadcrumb__item>svg.popover__block{
 	height: 10px;

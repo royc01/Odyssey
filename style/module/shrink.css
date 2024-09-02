@@ -242,9 +242,6 @@
 	border-radius:6px;
 }
 
-.sy__backlink .protyle-wysiwyg [data-node-id].li>.list {
-    padding-left: 0px!important;
-}/*反链列表间距收窄*/
 .sy__backlink .block__icons .counter:hover{
 	background-color: var(--O-dockleft-item-active-background)!important;
 }
