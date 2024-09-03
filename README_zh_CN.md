@@ -6,6 +6,9 @@
 * Ocean颜色（对比强烈配色）
 * Mountain护眼颜色（柔和黑暗配色）
 
+# v1.1.7
+* 修复离线情况下字体显示错误问题
+
 # v1.1.6
 * 内置twemoji v15.1版本
 * 引入google字体（Roboto、Noto Sans）
