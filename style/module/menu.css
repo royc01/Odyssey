@@ -125,17 +125,18 @@
 	background: var(--b3-border-color);
 	transition-property: background-color,filter;
 	transition-duration: .3s;
-	box-sizing: border-box;
+	border: none;
   }
 
 .b3-switch::after {
-  border: none;
-  box-shadow: none;
-  width: 13px;
-  height: 13px;
-  border-radius: 44px;
-  background: var(--b3-theme-background);
-  transform: translateX(5px) translateY(5px);
+	box-shadow: none;
+	width: 12px;
+	height: 12px;
+	border-radius: 44px;
+	background: var(--b3-theme-background);
+	transform: translate(-4px,3px);
+	top: 0px;
+	border: none;
 }
 
 .b3-switch::before {
@@ -147,9 +148,9 @@
 }
 
 .b3-switch:checked:after {
-  background: var(--b3-theme-background);
-  transform: translateX(18px) translateY(5px);
-}
+	background: var(--b3-theme-background);
+	transform: translate(-2px,3px);
+  }
 /*引用块弹出框*/
 .block__popover--open{
 	border:none;
