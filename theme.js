@@ -486,7 +486,7 @@ function topbarfixedButton() {
     odysseyThemeToolplusAddButton(
         "topBar",
         "b3-menu__item",
-		"隐藏顶栏",
+		"顶栏合并",
         () => {
             loadStyle("/appearance/themes/Odyssey/style/topbar/top-fixed.css", "theme-color-style-topbar隐藏").setAttribute("topBarcss", "topbar隐藏");
         },
