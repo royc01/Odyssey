@@ -1,84 +1,58 @@
 /* ————————————————————顶栏———————————————————— */
-.toolbar{
-	border: none;
-	overflow:visible;
-	background-color: var(--O-toolbar-background);
-}
-.toolbar__item:not(.toolbar__item--disabled) svg,.toolbar__window .toolbar__item:not(.toolbar__item--disabled) svg{
-	color: var(--b3-theme-on-background);
-}
-
-.toolbar__item:not(.toolbar__item--disabled):not(.toolbar__item--close):hover, .toolbar__item--active {
-	background-color: var(--O-toolbar-item-hover);
-}
-.toolbar__window .toolbar__item--close{
-	padding: 8px 7px 8px 0;
-	height: 40px;
-}
-
-.body--window #layouts{
-	margin: 0px;
-    border-radius: 0px;
-}
-.toolbar__window .toolbar__item--win{
-	margin-right:6px!important;
-}
-/*右上角关闭*/
-#minWindow, #restoreWindow, #maxWindow{
-	margin: 5px 2px;
-	border-radius:6px;
-	padding: 5px 7px;
-	height: 24px;
-}
-#minWindow svg, #restoreWindow svg, #maxWindow svg, #closeWindow svg{
-	width: 11px!important;
-}
-
-.toolbar__item--close{
-	padding: 6px 6px 8px 0px;
-	height: 36px;
-}
-#closeWindow svg{
-	width: 11px!important;
-	padding: 5px 7px;
-	border-radius:5px;
-}
-#closeWindow:hover{
-	background-color: rgba(0, 0, 0, 0);
-}
-
-#closeWindow:hover svg{
-	color: var(--O-toolbar-closeWindow-svg);
-	background: var(--O-toolbar-closeWindow-hover);
-}
-
-/*同步*/
-#barSync{
-	margin-left:5px;
-}
-/*工作空间*/
-#barWorkspace {
-	height:24px;
-	border-radius:6px;
-	padding:0 3px;
-	margin:0px;
-	background:transparent;
-	/*background:url("data:image/svg+xml;utf8,<svg fill='rgba(95, 99, 104, .68)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path fill='rgba(255, 255, 255, 1)' d='M13.2 10.8l-3.733 3.733v7.467l3.733-3.733v-7.467z'/><path fill='rgba(59, 62, 67, 1)' d='M13.2 10.8v7.467l2.8 2.8v-7.467z'/><path fill='rgba(59, 62, 67, 1)' d='M18.8 10.8v0 7.467l3.733 3.733v-7.467z'/><path fill='rgba(255, 255, 255, 1)' d='M16 13.6v7.467l2.8-2.8v-7.467z'/></svg>") no-repeat left -2px top -5px */;                           
-}
-#barWorkspace:hover{
-	background-color: var(--O-toolbar-item-hover);
-}
-
-#barWorkspace .toolbar__text{
-	line-height:24px;
-	color:var(--b3-theme-on-background);
-	text-align:center;
-	font-weight:600;
-	text-transform:uppercase;
-}
-
-#barWorkspace .toolbar__svg{
-	margin-left:2px;
-	padding:5px;
-	color:var(--b3-theme-on-background);
+body:not(.body--mobile,.body--window)>#toolbar{
+	background-color: var(--Os-toolbar-background);
+	border:none;
+    height: 38px;
+    padding: 0 0 0 3px;
+    .toolbar__item:not(#barWorkspace,#closeWindow){
+        height: 28px;
+        width: 28px;
+        padding: 7px;
+        border-radius:6px;
+    }
+    #barWorkspace/*工作空间*/ {
+        height:28px;
+        border-radius:8px;
+        padding:0 3px 0 10px;
+        margin:0px 3px 0px 2px	;
+        background-color: var(--Os-barWorkspace-background);
+        /*background:url("data:image/svg+xml;utf8,<svg fill='rgba(95, 99, 104, .68)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path fill='rgba(255, 255, 255, 1)' d='M13.2 10.8l-3.733 3.733v7.467l3.733-3.733v-7.467z'/><path fill='rgba(59, 62, 67, 1)' d='M13.2 10.8v7.467l2.8 2.8v-7.467z'/><path fill='rgba(59, 62, 67, 1)' d='M18.8 10.8v0 7.467l3.733 3.733v-7.467z'/><path fill='rgba(255, 255, 255, 1)' d='M16 13.6v7.467l2.8-2.8v-7.467z'/></svg>") no-repeat left -2px top -5px #ee6f5b;*/
+        &:hover{
+            background-color: var(--Os-barWorkspace-background-hover);
+        }
+        & .toolbar__text{
+            line-height:28px;
+            color:var(--Os-barWorkspace-color);
+            font-weight:600;
+            font-size: 14px;
+            text-transform:uppercase;
+        }
+        & .toolbar__svg{
+            margin-left:2px;
+            padding:7px;
+            color:var(--Os-barWorkspace-color);
+        }       
+    }
+    #closeWindow{
+        width: 40px;
+        &.toolbar__item--close{
+            padding: 2px 6px;
+        }
+        svg{
+            width: 12px!important;
+            height: 12px!important;
+            padding: 8px;
+            border-radius: 6px;
+        }
+        &:hover{
+        background-color: rgba(0, 0, 0, 0);
+        svg{
+            color: var(--Os-toolbar-closeWindow-svg);
+            background: var(--Os-toolbar-closeWindow-hover);
+        }
+        }
+    }
+    .toolbar__item:not(.toolbar__item--disabled):not(.toolbar__item--close):hover, .toolbar__item--active {
+        background-color: var(--Os-toolbar-item-hover);
+    }
 }

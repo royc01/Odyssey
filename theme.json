@@ -2,7 +2,7 @@
   "name": "Odyssey",
   "author": "Roy",
   "url": "https://github.com/royc01/Odyssey",
-  "version": "1.1.9",
+  "version": "2.0.0",
   "displayName": {
     "default": "Odyssey",
     "zh_CN": "任我行"
@@ -24,7 +24,7 @@
     "patreon": "",
     "github": "",
     "custom": [
-      "https://afdian.net/a/Savor"
+      "https://afdian.com/a/Savor"
     ]
   },
   "modes": [

@@ -11,6 +11,7 @@
     --b3-theme-surface-light: rgba(251, 251, 250, .5);
     --b3-theme-surface-lighter: rgba(230, 229, 225);
     --b3-theme-error: #eb5757;
+    --b3-theme-success: #65b84d;
 
     /* 文字颜色 */
     --b3-theme-on-primary: #fff;
@@ -20,6 +21,16 @@
     --b3-theme-on-surface-light: rgba(95, 99, 104, .68);
     --b3-theme-on-error: #fff;
 
+    /* 字体 */
+    /* Windows 斜体遮挡添加 "Segoe UI" 字体 https://github.com/siyuan-note/siyuan/issues/11841 */
+    --b3-font-family: Roboto, 'Twitter Emoji', "Noto Sans SC", sans-serif, apple-system, BlinkMacSystemFont,"Helvetica Neue", "Luxi Sans", "DejaVu Sans", "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Android Emoji", "EmojiSymbols";
+    --b3-font-family-protyle: var(--b3-font-family);
+    --b3-font-family-code: "JetBrainsMono-Regular", mononoki, Consolas, "Liberation Mono", Menlo, Courier, monospace, var(--b3-font-family);
+    --b3-font-family-graph: mononoki;
+    --b3-font-family-emoji: 'Twitter Emoji', "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", "Apple Color Emoji", "Noto Color Emoji", "Android Emoji";
+    --b3-font-family-math: KaTeX_Math;
+    --b3-font-size: 14px;
+
     /* 顶部工具栏 */
     --b3-toolbar-background: var(--b3-theme-surface);
     --b3-toolbar-blur-background: #fcfcfc;
@@ -28,47 +39,41 @@
     --b3-toolbar-left-mac: 69px;
 
     /* 线条 */
-    --b3-border-color: rgba(0, 0, 0, 0.1);
-    --b3-border-radius: 8px;
+    --b3-border-color: var(--b3-theme-surface-lighter);
+    --b3-border-radius: 6px;
     --b3-border-radius-b: 12px;
 
     /* 滚动条 */
-	--b3-scroll-color: rgba(211,209,203,.5);
-	--b3-scroll-color-hover: rgba(174,172,166);
-	--b3-scroll-bgcolor: transparent;
-
-	--b3-border-scroll: rgba(55, 53, 47, 0.2);
-	
-	--webkit-scrollbar: 6px;
-	--webkit-scrollbar-thumb: 4px;
+    --b3-scroll-color: rgba(0, 0, 0, .2);
 
     /* 列表 */
-    --b3-list-hover: var(--O-list-background);
+    --b3-list-hover: rgba(0, 0, 0, .075);
     --b3-list-icon-hover: rgba(33, 34, 36, .1);
 
     /* 菜单 */
-    --b3-menu-background: #f8f9fa;
+    --b3-menu-background: var(--b3-theme-surface);
 
     /* 提示 */
-	--b3-tooltips-background: var(--b3-theme-on-background);
-	--b3-tooltips-color: var(--b3-theme-background);
+    --b3-tooltips-background: #312f35;
+    --b3-tooltips-color: var(--b3-theme-background-light);
+    --b3-tooltips-second-color: #7d7c7a;
     --b3-tooltips-shadow: 0 2px 8px rgba(0, 0, 0, .1);
 
     /* 为空提示 */
     --b3-empty-color: var(--b3-theme-on-surface-light);
 
     /* 遮罩 */
-    --b3-mask-background: rgba(0, 0, 0, 0.78);
+    --b3-mask-background: rgba(220, 220, 220, .4);
 
     /* 卡片背景 */
     --b3-card-error-color: rgb(97, 26, 21);
-    --b3-card-error-background: rgb(253, 236, 234);
+    --b3-card-error-background: #f5d1cf;
     --b3-card-warning-color: rgb(102, 60, 0);
-    --b3-card-warning-background: rgb(255, 244, 229);
+    --b3-card-warning-background: #ffe8c8;
     --b3-card-info-color: rgb(13, 60, 97);
-    --b3-card-info-background: rgb(232, 244, 253);
+    --b3-card-info-background: #d6eaf9;
     --b3-card-success-color: rgb(30, 70, 32);
-    --b3-card-success-background: rgb(237, 247, 237);
+    --b3-card-success-background: #d7eed8;
 
     /* 自定义文字 */
 	--b3-font-color1: #000;
@@ -102,14 +107,25 @@
     /* 动画效果 */
     --b3-transition: all .2s cubic-bezier(0, 0, .2, 1) 0ms;
     --b3-width-transition: width .2s cubic-bezier(0, 0, .2, 1) 0ms;
+    --b3-color-transition: color .2s cubic-bezier(0, 0, .2, 1) 0ms;
+    --b3-background-transition: background 20ms ease-in 0s;
 
     /* 下拉菜单 */
-    --b3-select-background: url("data:image/svg+xml;utf8,<svg fill='rgba(95, 99, 104, .68)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M12.8,15.6l4-4.1c0.2-0.2,0.2-0.4,0.2-0.6c0-0.5-0.4-0.9-0.9-0.9c-0.3,0-0.5,0.1-0.6,0.3L12,13.9l-3.4-3.6C8.3,10.1,8.1,10,7.9,10C7.4,10,7,10.4,7,10.9c0,0.2,0.1,0.4,0.2,0.6l4,4.1c0.2,0.2,0.4,0.3,0.7,0.3C12.3,15.9,12.5,15.8,12.8,15.6z'/></svg>") no-repeat right 2px center var(--b3-theme-background);
+    --b3-select-background: url("data:image/svg+xml;utf8,<svg fill='rgba(95, 99, 104, .68)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M12.8,15.6l4-4.1c0.2-0.2,0.2-0.4,0.2-0.6c0-0.5-0.4-0.9-0.9-0.9c-0.3,0-0.5,0.1-0.6,0.3L12,13.9l-3.4-3.6C8.3,10.1,8.1,10,7.9,10C7.4,10,7,10.4,7,10.9c0,0.2,0.1,0.4,0.2,0.6l4,4.1c0.2,0.2,0.4,0.3,0.7,0.3C12.3,15.9,12.5,15.8,12.8,15.6z'/></svg>") no-repeat right 2px center var(--Os-select-field)   ;
+
+    /* switch */
+    --b3-switch-background: #e1e3e1;
+    --b3-switch-border: var(--b3-theme-on-surface-light);
+    --b3-switch-hover: rgba(31, 31, 31, 0.06);
+    --b3-switch-checked: #fff;
+    --b3-switch-checked-background: var(--b3-theme-primary);
+    --b3-switch-checked-hover: #d3e3fd;
+    --b3-switch-checked-hover2: rgba(31, 31, 31, .06);
 
     /* 阴影 */
-    --b3-point-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-    --b3-dialog-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
-	--b3-menu-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+    --b3-point-shadow: 0 0 1px 0 rgba(0, 0, 0, .1), 0 0 2px 0 rgba(0, 0, 0, .2);
+    --b3-dialog-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+    --b3-button-shadow: 0 5px 5px -3px rgb(0 0 0 / .2), 0 8px 10px 1px rgb(0 0 0 / .14), 0 3px 14px 2px rgb(0 0 0 / .12);
 
     /* 图表颜色 */
     --b3-graph-p-point: #076f7e;
@@ -141,12 +157,12 @@
 
     /* 代码片段背景 */
     --b3-protyle-code-background: rgba(27, 31, 35, .05);
-    --b3-protyle-code-linenumber-hl: #b9d1f4;
 
     /* 所见即所得行内元素颜色 */
-    --b3-protyle-inline-strong-color: #202124;
-    --b3-protyle-inline-em-color: #202124;
-    --b3-protyle-inline-s-color: #202124;
+    --b3-protyle-inline-strong-color: inherit;
+    --b3-protyle-inline-em-color: inherit;
+    --b3-protyle-inline-u-color: inherit;
+    --b3-protyle-inline-s-color: inherit;
     --b3-protyle-inline-link-color: #4285f4;
     --b3-protyle-inline-mark-background: rgb(252, 212, 126);
     --b3-protyle-inline-mark-color: #202124;
@@ -156,7 +172,7 @@
 
     /* PDF */
     --b3-pdf-selection: #d0e9c8;
-    --b3-pdf-sidebar-width: 200px;
+    --sidebar-width: 200px;
     --b3-pdf-offset: 0;
     --b3-pdf-background1: var(--b3-font-background5);
     --b3-pdf-background2: var(--b3-font-background6);
@@ -166,164 +182,337 @@
     --b3-pdf-background6: var(--b3-font-background11);
     --b3-pdf-background7: var(--b3-font-background13);
     --b3-pdf-dark: #212224;
-	
-	/*******************  自定义结构配色  *******************/
-	/*callout*/
-	--b3-bq-background1: rgb(198, 203, 208 , .5);
-    --b3-bq-background2: rgb(225, 225, 225 , .5);
-    --b3-bq-background3: rgb(235, 236, 237 , .5);
-    --b3-bq-background4: rgb(233, 229, 227 , .5);
-	--b3-bq-background5: rgb(246, 225, 205 , .5);
-    --b3-bq-background6: rgb(250, 235, 221 , .5);
-    --b3-bq-background7: rgb(251, 243, 219 , .5);
-	--b3-bq-background8: rgba(221, 237, 226 , .5);
-    --b3-bq-background9: rgb(221, 237, 234 , .5);
-    --b3-bq-background10: rgb(221, 235, 241 , .5);
-    --b3-bq-background11: rgb(234, 228, 242 , .5);
-    --b3-bq-background12: rgb(244, 223, 235 , .5);
-    --b3-bq-background13: rgb(251, 228, 228 , .5);
+
+    /* 表格 */
+    --b3-table-even-background: rgba(0, 0, 0, .02);
+
+    /* 嵌入块 */
+    --b3-embed-background: transparent;
+
+    /* 引述块 */
+    --b3-bq-background: transparent;
+
+    /* 父块颜色 */
+    --b3-parent-background: var(--b3-theme-background);
+
+
+    /* ————————————————————  自定义结构配色  ———————————————————— */
 	
 	/* 顶栏 */
-	--b3-toolbar-blur-background: var(--O-toolbar-background);
-	--O-toolbar-background: #ecefea;
-	--O-toolbar-item-hover: var(--b3-list-hover);
-	--O-toolbar-closeWindow-hover: linear-gradient(to bottom right,#8788ff, #c796f1);
-	--O-toolbar-closeWindow-svg: #fff;
-	
-	/* dock栏 */
-	--O-dock-color: rgb(55, 53, 47, .5);
-	--O-dock-background:  var(--O-toolbar-background);
-	--O-dockright-item-active-background: #2c2f32;
-	--O-dockleft-item-active-background: #2c2f32;
-	--O-dock-item-active-color: var(--b3-theme-background);
-	--O-dock-item-hover-background: #2c2f32;
-	--O-dock--item--activefocus:  linear-gradient(to bottom right,#8788ff, #c796f1);
-	
-	--O-dock-item-width: 30px;
-	
-	/* 侧栏面板 */
-	--O-fn__flex-column-background: #faf9f8;
-	--O-fn__flex-shrink-background: #faf9f8;
-	--O-block-logo-color: var(--b3-theme-on-background);
-	--O-block-logo-background-color: #bdbcb8;
-	--O-block-icon-svg-color: rgba(161, 160, 156);
-	--O-block-icon-hover: rgba(53, 61, 47, 0.06);
-	--O-list-item-arrow: rgba(55, 53, 47, 0.4);
-	--O-list-background: rgba(53, 61, 47, 0.06);
-	--O-list-background-focus: rgba(53, 61, 47, 0.12);
-	--O-list-background-activefocus:  rgba(218, 200, 245, 0.3);
-	--O-block-icon-active: var(--b3-theme-error);
-    --O-list-counter:#dbc9f5;
-	
-	--O-flex-column-padding:6px 0px 2px 0px;
-	--O-list-item-radius: 8px;
-	
-	/* 大纲数字 */
+    --Os-toolbar-background: #ecefea;
+    --Os-toolbar-item-hover: var(--b3-theme-surface);
+    --Os-barWorkspace-color: var(--b3-theme-on-background);
+    --Os-barWorkspace-background: var(--Os-list-background);
+    --Os-barWorkspace-background-hover: var(--Os-list-focus-hover);
+    --Os-toolbar-closeWindow-hover: #ee6f5b;
+    --Os-toolbar-closeWindow-svg: #fff;
+
+	/* 边栏 */
+    --Os-dock-background: var(--Os-toolbar-background);
+    --Os-dock-item-color: rgba(55, 53, 47, .5);
+    --Os-dock-item-hover-color: var(--b3-theme-background);
+    --Os-dock-item-active-background: #2c2f32;
+    --Os-dock-item-active-background-hover: #2c2f32;
+    --Os-dock--item--activefocus-color: var(--b3-theme-background);
+    --Os-dock-item-activefocus-background:  linear-gradient(to bottom right,#8788ff, #c796f1)!important;
+    
+    /* 侧栏 */
+    --Os-block-icon-svg-color: var(--Os-dock-item-color);
+    --Os-block-icon-svg-color-hover: var(--b3-theme-on-background);
+    --Os-block-icon--background-hover: var(--Os-list-background);
+    --Os-list-item-radius: 6px;
+    --Os-list-item-arrow: rgba(55, 53, 47, 0.4);
+    --Os-list-background: rgba(55, 53, 47, 0.06);
+    --Os-list-focus-hover: rgba(55, 53, 47, 0.12);
+    --Os-list-focus-active:  rgba(218, 200, 245, 0.3);
+    --Os-list-focus-color: var(--b3-theme-on-background);
+    --Os-list-item-color: var(--b3-theme-on-surface);
+    --Os-layout--resize: transparent;/*分界线*/
+    --Os-layout--resize-hover: rgba(0, 0, 0, .1);
+    --Os-float-background: var(--Os-toolbar-background);
+    --Os-list-counter: #dbc9f5;
+
+    /* 大纲数字 */
 	--h1-list-graphic: #eb8383;
 	--h2-list-graphic: #ae9acb;
 	--h3-list-graphic: #7db5cd;
 	--h4-list-graphic: #71a796;
 	--h5-list-graphic: #dcbf61;
 	--h6-list-graphic: #dda36a;
-	
-	/* 线条 */
-	--b3-layout-resize: rgba(230, 229, 225);
-	--b3-shrink-layout-resize: rgba(230, 229, 225);
-	--b3-layout-resize-hover: var(--b3-scroll-color);
-	--flex-width-transition:width 150ms linear; /*调节宽度动画*/
-	--b3-border-fold: rgb(15, 15 , 15, .1);/*折叠边框*/
-	--b3-layout-resize-width: 1px;
-	
-	/* 页签 */
-	--O-item-focus: rgb(0, 0, 0 ,1);
-    --O-tabbar-background: #f5f6f4;
-	
-	/* 面包屑 */
-	--O-protyle-breadcrumb-arrow: rgba(174,172,166);
-	
-	/* 头图按钮 */
-	--O-icons-tooltips: rgba(55, 53, 47, 0.5);
-	--O-icons-tooltips-hover: var(--O-list-background);
-	--O-img-icons-tooltips: var(--b3-theme-on-surface);
-	--O-img-icons-tooltips-bg: var(--b3-theme-background);
-	--O-img-icons-span: rgba(0, 0, 0, .5);
-	
-	/* 块标 */
-	--b3-gutters-color: rgba(211,209,203);
-	--O-gutters-background: var(--O-toolbar-item-hover);
-	
-	/* 弹出工具条字体颜色选择 */
-	--b3-color--square: var(--b3-border-color);
-	
-	/* 任务列表 */
-	--b3-task-done-color: var(--b3-scroll-color-hover);
-	--b3-task-done-hover: #069ccd;
-	
-	/* 引述 */
-	--b3-bq-background: rgba(249, 249, 250);
-	
-	/* 块引用 */
-	--b3-block-ref-background: var(--O-toolbar-item-hover);
-    --O-block-ref-border: linear-gradient(to bottom right,#8788ff, #c796f1) 1;
-	
-	/* 代码块 */
-	--O-linenumber-rows: rgba(55, 53, 47, 0.09);
-	--O-code-block-hljs: var(--O-list-background);		
-	
-	/*行内代码*/
-	--O-inline-code:var(--b3-theme-error);
-	
-	/*按钮*/
-	--b3-button: var(--O-dockright-item-active-background);
-	
-	/*pdf*/
-	--b3-toolbarSidebar: #f1f1f0;
-	
-	/*导图*/
-	--b3-border-daotu: 2px solid #ffb8b8;
-	--b3-block-daotu:#FFF;
-	
-	/*看板*/
-	--kbline-boarditem-minwidth: 14rem;/*看板卡片的最小宽度*/
-	--kb--li--background:#fff;
-	
-	/*ctrlp*/
-	--b3-list-item--meta: #9b9a97;
-	
-	/*底栏状态*/
-	--O-status-msg-background: #f1f1f0;
-	
-	/*标签*/
-	--O-chip--secondary:rgb(73, 41, 14);
-	--O-chip--primary:rgb(64, 44, 27);
-	--O-chip--info:rgb(28, 56, 41);
-	--O-chip--success:rgb(24, 51, 71);
-	--O-chip--warning:rgb(65, 36, 84);
-	--O-chip--error:rgb(76, 35, 55);
-	--O-chip--pink:rgb(93, 23, 21);
+    
+    /* 反链面板 */
+    --Os-block-logo-color: var(--b3-theme-background);
+    --Os-block-logo-background: rgba(55, 53, 47, 0.2);
+    --Os-block-icon-active: var(--Os-barWorkspace-background);
+    --Os-backlink-background: var(--Os-toolbar-background);
+    --Os-backlink-list: var(--b3-theme-surface);
 
-    /*odyssey功能按钮*/
-	--O-Forest-on:url("data:image/svg+xml;utf8,<svg fill='rgb(185, 136, 255)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 12.133c-1.867 0-2.933 1.467-2.933 2.933 0 0.533 0 1.733 0 2.267 0 0.8 0.4 1.467 0.4 1.467 0.4 0.667 1.067 1.2 1.867 1.333v1.2c0 0.267 0.267 0.533 0.533 0.533s0.533-0.267 0.533-0.533v-1.2c1.333-0.267 2.267-1.467 2.267-2.8v-2.267c0.267-1.6-0.933-2.933-2.667-2.933zM17.733 17.333c0 0.8-0.4 1.333-1.2 1.6v-2.267c0-0.267-0.267-0.533-0.533-0.533s-0.533 0.267-0.533 0.533v2.267c-0.8-0.267-1.2-0.933-1.2-1.6v-2.267c0-0.933 0.8-1.733 1.733-1.733s1.733 0.8 1.733 1.733v2.267zM16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.2-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467z'/></svg>") no-repeat left 0px top -2px;
-	--O-Forest-off:url("data:image/svg+xml;utf8,<svg fill='rgb(185, 136, 255)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 12.133c-1.867 0-2.933 1.467-2.933 2.933 0 0.533 0 1.733 0 2.267 0 0.8 0.4 1.467 0.4 1.467 0.4 0.667 1.067 1.2 1.867 1.333v1.2c0 0.267 0.267 0.533 0.533 0.533s0.533-0.267 0.533-0.533v-1.2c1.333-0.267 2.267-1.467 2.267-2.8v-2.267c0.267-1.6-0.933-2.933-2.667-2.933zM17.733 17.333c0 0.8-0.4 1.333-1.2 1.6v-2.267c0-0.267-0.267-0.533-0.533-0.533s-0.533 0.267-0.533 0.533v2.267c-0.8-0.267-1.2-0.933-1.2-1.6v-2.267c0-0.933 0.8-1.733 1.733-1.733s1.733 0.8 1.733 1.733v2.267zM16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.2-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467z'/></svg>") no-repeat left 0px top -2px;
+    /* 底栏 */
+    --Os-status-msg-background: #eeeeec;
+
+    /* 页签 */
+    --Os-tab-bar-background: var(--Os-toolbar-background);
+    --Os-tab-bar-item-background: var(--b3-theme-surface);
+    --Os-tab-bar-item-background-hover: var(--b3-theme-background);
+    --Os-tab-bar-item-background-focus: var(--b3-theme-background);
+
+    /* 面包屑 */
+    --Os-breadcrumb-arrow: rgb(174,172,166);
+    --Os-breadcrumb-hover: var(--Os-list-background);
+    --Os-breadcrumb-active: #ab90f7;
+    --Os-breadcrumb-active-color: var(--b3-theme-background);
+    --Os-breadcrumb-active-hover:#9d80ec;
+    --Os-breadcrumb-border: rgba(230, 229, 225);
+
+    /* 头图 */
+    --Os-background-icon-hover: var(--Os-list-background);
+    --Os-background-icon-button-color: var(--b3-theme-background);
+    --Os-background-icon-button: #b9b8b6;
+    --Os-background-icon-button-hover: var(--Os-list-background);
+    --Os-protyle-icon: var(--b3-theme-background);
+    --Os-protyle-icon-color: var(--b3-theme-on-surface);
+    --Os-protyle-icon-text-color: var(--b3-theme-background);
+    --Os-protyle-icon-hover: var(--Os-status-msg-background);
+    --Os-img-icons-span: rgba(0, 0, 0, .5);
+
+    /* —————— 编辑器 —————— */
+    --Os-title-input-empty: rgba(55, 53, 47, 0.2);
+    /* 列表 */
+    --Os-protyle-action-color: var(--b3-theme-on-background);
+    --Os-protyle-action-hover: var(--Os-list-background);
+    /* 块标 */ 
+    --Os-gutters-color: rgb(211, 209, 203);
+    --Os-gutters-background: var(--Os-list-background);
+    --Os-task-done: var(--b3-theme-primary);
+    --Os-task-done-hover:  var(--b3-theme-primary);
+    /* 文档标签 */
+    --Os-chip--secondary-color: #7e5842;
+    --Os-chip--secondary-bg: var(--b3-font-background6);
+    --Os-chip--primary-color: #8f7441;
+    --Os-chip--primary-bg: var(--b3-font-background7);
+    --Os-chip--info-color: #536a59;
+    --Os-chip--info-bg: var(--b3-font-background8);
+    --Os-chip--success-color: #475961;
+    --Os-chip--success-bg: var(--b3-font-background10);
+    --Os-chip--warning-color: #493f57;
+    --Os-chip--warning-bg: var(--b3-font-background11);
+    --Os-chip--error-color: #573d4d;
+    --Os-chip--error-bg: var(--b3-font-background12);
+    --Os-chip--pink-color: #4d3838;
+    --Os-chip--pink-bg: var(--b3-font-background13);
+    /* 字体颜色选择 工具条 */
+    --Os-protyle-toolbar-color: var(--b3-theme-on-background);
+    --Os-protyle-util-bg: var(--b3-theme-background);
+
+    --Os-color-d-shadow: #c7c6c4;
+    --Os-color1-shadow: #c7c6c4;
+    --Os-color2-shadow: #dbdad9;
+    --Os-color3-shadow: #d0c7c4;
+    --Os-color4-shadow: #f4d5b6;
+    --Os-color5-shadow: #fcd9c0;
+    --Os-color6-shadow: #f5e6b2;
+    --Os-color7-shadow: #d5ebce;
+    --Os-color8-shadow: #b7d7d3;
+    --Os-color9-shadow: #b6d4e0;
+    --Os-color10-shadow: #d2c6e4;
+    --Os-color11-shadow: #e6bad4;
+    --Os-color12-shadow: #f6c9c9;
+    --Os-color13-shadow: #f8b7bd;
+
+    --Os-bg-d-shadow: #c7c6c4;
+    --Os-bg1-shadow: #9aa2aa;
+    --Os-bg2-shadow: #c7c7c7;
+    --Os-bg3-shadow: #d9dadc;
+    --Os-bg4-shadow: #d5ceca;
+    --Os-bg5-shadow: #edc7a5;
+    --Os-bg6-shadow: #f5d9c0;
+    --Os-bg7-shadow: #f7e8bc;
+    --Os-bg8-shadow: #c0dcc8;
+    --Os-bg9-shadow: #c0dcd7;
+    --Os-bg10-shadow: #c0d9e4;
+    --Os-bg11-shadow: #d7cce6;
+    --Os-bg12-shadow: #e9c3d9;
+    --Os-bg13-shadow: #f7cccc;
+    
+    --Os-style1-d-shadow: #c7c6c4;
+    --Os-error-shadow: #e28c88;
+    --Os-warning-shadow: #ffc07b;
+    --Os-info-shadow: #97c5ed;
+    --Os-success-shadow: #99cf9b;
+
+    /* 标题符号 */
+    --h1-r-graphic: url("data:image/svg+xml;utf8,<svg fill='rgba(235, 131, 131, 0.4)' height='24' viewBox='0 0 32 32' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M4.8 29.714v0c-1.371 0-2.514-1.143-2.514-2.514v0c0-1.371 1.143-2.514 2.514-2.514v0c1.371 0 2.514 1.143 2.514 2.514v0c0.114 1.371-1.029 2.514-2.514 2.514z'/></svg>") no-repeat  center;
+	--h2-r-graphic: url("data:image/svg+xml;utf8,<svg fill='rgba(174, 154, 203, 0.5)' height='24' viewBox='0 0 32 32' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286z'/></svg>") no-repeat  center;
+	--h3-r-graphic: url("data:image/svg+xml;utf8,<svg fill='rgba(125, 181, 205, 0.5)' height='24' viewBox='0 0 32 32' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286z'/></svg>") no-repeat  center;
+	--h4-r-graphic: url("data:image/svg+xml;utf8,<svg fill='rgba(113, 167, 150, 0.5)' height='24' viewBox='0 0 32 32' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 22.857c1.257 0 2.286-1.029 2.286-2.286s-1.029-2.286-2.286-2.286-2.286 1.029-2.286 2.286 1.029 2.286 2.286 2.286z'/></svg>") no-repeat  center;
+	--h5-r-graphic: url("data:image/svg+xml;utf8,<svg fill='rgba(220, 191, 97, 0.5)' height='24' viewBox='0 0 32 32' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 22.857c1.257 0 2.286-1.029 2.286-2.286s-1.029-2.286-2.286-2.286-2.286 1.029-2.286 2.286 1.029 2.286 2.286 2.286zM4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 11.429c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286z'/></svg>") no-repeat  center;
+	--h6-r-graphic: url("data:image/svg+xml;utf8,<svg fill='rgba(221, 163, 106, 0.5)' height='24' viewBox='0 0 32 32' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M4.571 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM4.571 11.429c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 18.286c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 25.143c-1.257 0-2.286 1.029-2.286 2.286s1.029 2.286 2.286 2.286 2.286-1.029 2.286-2.286-1.029-2.286-2.286-2.286zM11.429 16c1.257 0 2.286-1.029 2.286-2.286s-1.029-2.286-2.286-2.286-2.286 1.029-2.286 2.286 1.029 2.286 2.286 2.286z'/></svg>") no-repeat  center;
+
+    /* 引用 */
+    --Os-block-ref-color: var(--b3-theme-on-background); 
+    --Os-block-ref-background: var(--Os-list-background);
+    --Os-block-ref-background-hover: var(--Os-list-focus-hover);
+    --Os-block-ref-bottom: linear-gradient(to bottom right, #8788ff, #c796f1) 1;
+    --Os-block-ref-su: var(--b3-theme-background);
+    
+    /* 超链接 */
+    --Os-block-link-color: var(--b3-theme-on-surface);
+    --Os-block-link-bottom:  var(--b3-theme-on-surface);
+    --Os-block-link-color-hover: var(--b3-theme-on-background);
+    --Os-block-link-bottom-hover: var(--b3-theme-on-background);
+
+    /* 嵌入块 */
+    --Os-block-NBQE: var(--b3-theme-surface-lighter);
+
+    /* 命名，别名，备注*/
+    --Os-protyle-attr: var(--b3-font-color3);
+
+    /* 表格 */
+    --Os-table-thead: var(--b3-theme-surface);
+
+    /* 代码块 */
+    --Os-code-block-background: #f7f7f7;
+
+    /* 行内代码*/
+    --Os-inline-code:var(--b3-theme-error);
+
+    /* 行内标签 */
+    --Os-protyle-tag-color: var(--b3-theme-on-background);
+    --Os-protyle-tag-bg: var(--b3-font-background7);
+
+    /* pdf批注 */
+    --Os-pdf-ref-bg: var(--Os-list-background);
+    --Os-pdf-ref-bg-hover: var(--Os-list-focus-hover);
+
+    /* 键盘 */
+    --Os-kbd-color: var(--b3-theme-on-background);
+    --Os-kbd-background: var(--b3-theme-background);
+
+    /* 折叠样式 */
+    --Os-fold-background: var(--b3-theme-surface);
+    --Os-fold-border: var(--b3-theme-surface-lighter);
+
+    /* 数据库 */
+	--Os-font-color13: rgb(93, 23, 21);
+	--Os-font-color12: rgb(76, 35, 55);
+	--Os-font-color11: rgb(65, 36, 84);
+	--Os-font-color10: rgb(24, 51, 71);
+	--Os-font-color9: rgb(24, 51, 71);
+	--Os-font-color8: rgb(28, 56, 41);
+	--Os-font-color7: rgb(64, 44, 27);
+	--Os-font-color6: rgb(73, 41, 14);
+	--Os-font-color5: rgb(73, 41, 14);
+	--Os-font-color4: rgb(50, 48, 44);
+	--Os-font-color3: rgb(50, 48, 44);
+	--Os-font-color2: rgb(50, 48, 44);
+	--Os-font-color1: rgb(50, 48, 44);
+
+    /* 引述块颜色 */
+    --Os-bq-color: var(--b3-theme-on-background);
+    --Os-bq-background1: rgb(198, 203, 208 , .5);
+    --Os-bq-background2: rgb(225, 225, 225 , .5);
+    --Os-bq-background3: rgb(235, 236, 237 , .5);
+    --Os-bq-background4: rgb(233, 229, 227 , .5);
+    --Os-bq-background5: rgb(246, 225, 205 , .5);
+    --Os-bq-background6: rgb(250, 235, 221 , .5);
+    --Os-bq-background7: rgb(251, 243, 219 , .5);
+    --Os-bq-background8: rgba(221, 237, 226 , .5);
+    --Os-bq-background9: rgb(221, 237, 234 , .5);
+    --Os-bq-background10: rgb(221, 235, 241 , .5);
+    --Os-bq-background11: rgb(234, 228, 242 , .5);
+    --Os-bq-background12: rgb(244, 223, 235 , .5);
+    --Os-bq-background13: rgb(251, 228, 228 , .5);
+
+    /*导图*/
+	--b3-border-daotu: 2px solid #ffb8b8;
+	--b3-block-daotu: var(--b3-theme-background);
+
+
+
+
+    /* —————— 设置、搜索界面 —————— */
+    --Os--dialog-scrim: rgba(0, 0, 0, 0.78);
+    --Os--dialog-container: var(--b3-theme-background);
+    --Os--dialog-tab-bar: #eff1ed;
+
+    /* 搜索界面 */
+    --Os-search-result-tip: var(--b3-theme-surface);
+    --Os-list-meta-ellipsis: #9b9a97;
+
+    /* 集市界面 */
+    --Os-bazaar-focus: #ecefea;
+    --Os-bazaar-item: #e1e4df;
+    --Os-card--current: #f2ecfd;
+    --Os-card--current-shadow: #c0a1f5 0px 0px 0px 1px;
+    
+    /* 菜单 */
+    --Os-menu-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+    --Os-menu-accelerator: rgba(55, 53, 47, 0.4);
+    --Os-menu-background: var(--b3-theme-background);
+    --Os-menu-item-hover: var(--Os-list-background);
+    /* 按钮 */ 
+    --Os-button-background: var(--b3-theme-on-background);
+    --Os-button-color: var(--b3-theme-background);
+    --Os-button-background-hover: #000000;
+    --Os-button-cancel: var(--b3-theme-background);
+
+    /* 下拉框、输入框*/
+    --Os-select-field: var(--Os-list-background);
+    /* 滚动条 */
+	--Os-scroll-color: rgba(211,209,203,.5);
+	--Os-scroll-color-hover: rgba(174,172,166);
+	--Os-scroll-bgcolor: transparent;
+	--Os-border-scroll: rgba(55, 53, 47, 0.2);
+	--webkit-scrollbar: 8px;
+	--webkit-scrollbar-thumb: 4px;
+    --Os--slider-thumb: var(--b3-theme-surface-lighter);
+
+
+
+    /* 合并顶栏插件收缩颜色 */
+    --Os-plugin-off-bg: #e1e4df;
+    --Os-plugin-b-off-bg: #d8d8d3;
+    --Os-plugin-b-off-bg-hover: #dddddd;
+    --Os-plugin-on-bg: var(--Os-tab-bar-item-background);
+    --Os-plugin-counter: var(--b3-theme-on-background);
+
+
+    /*——————————————————————————— 收缩按钮 ——————————————————————————*/
+    --Os-Oplugin-on:url("data:image/svg+xml;utf8,<svg fill='rgb(132, 130, 125)' height='28' viewBox='0 0 24 24' width='28' xmlns='http://www.w3.org/2000/svg'><path d='M14.667 20.533c0.133 0.133 0.267 0.133 0.4 0.133 0.267 0 0.533-0.267 0.533-0.533 0-0.133 0-0.267-0.133-0.4l-3.067-2.933 3.067-2.933c0.133-0.133 0.133-0.267 0.133-0.4 0-0.267-0.267-0.533-0.533-0.533-0.133 0-0.267 0-0.4 0.133l-3.333 3.333c-0.133 0.133-0.133 0.267-0.133 0.4s0 0.267 0.133 0.4l3.333 3.333zM18.533 20.533c0.133 0.133 0.267 0.133 0.4 0.133 0.267 0 0.533-0.267 0.533-0.533 0-0.133 0-0.267-0.133-0.4l-3.067-2.933 3.067-2.933c0.133-0.133 0.133-0.267 0.133-0.4 0-0.267-0.267-0.533-0.533-0.533-0.133 0-0.267 0-0.4 0.133l-3.333 3.333c-0.133 0.133-0.133 0.267-0.133 0.4s0 0.267 0.133 0.4l3.333 3.333z'/></svg>") no-repeat left 16px top -6px;
+    --Os-Oplugin-off:url("data:image/svg+xml;utf8,<svg fill='rgb(132, 130, 125)' height='28' viewBox='0 0 24 24' width='28' xmlns='http://www.w3.org/2000/svg'><path d='M20.4 17.2c0.133-0.133 0.133-0.267 0.133-0.4s0-0.267-0.133-0.4l-3.333-3.333c-0.133-0.133-0.267-0.133-0.4-0.133-0.267 0-0.533 0.267-0.533 0.533 0 0.133 0 0.267 0.133 0.4l3.067 2.933-3.067 2.933c-0.133 0.133-0.133 0.267-0.133 0.4 0 0.267 0.267 0.533 0.533 0.533 0.133 0 0.267 0 0.4-0.133l3.333-3.333zM16.533 17.2c0.133-0.133 0.133-0.267 0.133-0.4s0-0.267-0.133-0.4l-3.333-3.333c-0.133 0-0.267-0.133-0.4-0.133-0.267 0-0.533 0.267-0.533 0.533 0 0.133 0 0.267 0.133 0.4l3.067 2.933-3.067 2.933c-0.133 0.133-0.133 0.267-0.133 0.4 0 0.267 0.267 0.533 0.533 0.533 0.133 0 0.267 0 0.4-0.133l3.333-3.333z'/></svg>") no-repeat left -10px top -6px;
+    /*——————————————————————————————————————————————————————————————*/
+    
+
+   /*odyssey功能按钮*/
+	--Os-Forest-on:url("data:image/svg+xml;utf8,<svg fill='rgb(185, 136, 255)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 12.133c-1.867 0-2.933 1.467-2.933 2.933 0 0.533 0 1.733 0 2.267 0 0.8 0.4 1.467 0.4 1.467 0.4 0.667 1.067 1.2 1.867 1.333v1.2c0 0.267 0.267 0.533 0.533 0.533s0.533-0.267 0.533-0.533v-1.2c1.333-0.267 2.267-1.467 2.267-2.8v-2.267c0.267-1.6-0.933-2.933-2.667-2.933zM17.733 17.333c0 0.8-0.4 1.333-1.2 1.6v-2.267c0-0.267-0.267-0.533-0.533-0.533s-0.533 0.267-0.533 0.533v2.267c-0.8-0.267-1.2-0.933-1.2-1.6v-2.267c0-0.933 0.8-1.733 1.733-1.733s1.733 0.8 1.733 1.733v2.267zM16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.2-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467z'/></svg>") no-repeat left 0px top -2px;
+	--Os-Forest-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 12.133c-1.867 0-2.933 1.467-2.933 2.933 0 0.533 0 1.733 0 2.267 0 0.8 0.4 1.467 0.4 1.467 0.4 0.667 1.067 1.2 1.867 1.333v1.2c0 0.267 0.267 0.533 0.533 0.533s0.533-0.267 0.533-0.533v-1.2c1.333-0.267 2.267-1.467 2.267-2.8v-2.267c0.267-1.6-0.933-2.933-2.667-2.933zM17.733 17.333c0 0.8-0.4 1.333-1.2 1.6v-2.267c0-0.267-0.267-0.533-0.533-0.533s-0.533 0.267-0.533 0.533v2.267c-0.8-0.267-1.2-0.933-1.2-1.6v-2.267c0-0.933 0.8-1.733 1.733-1.733s1.733 0.8 1.733 1.733v2.267zM16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.2-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467z'/></svg>") no-repeat left 0px top -2px;
 	
-	--O-Flower-on:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.333-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467zM19.333 14.533c-0.267 0-1.6 0.267-1.6 0.267s-1.067-1.6-1.733-1.6-1.6 1.6-1.6 1.6-1.333-0.267-1.6-0.267-0.667 1.333-0.667 2.667c0 2.4 1.733 4 4 4s4-1.6 4-4c-0.133-1.333-0.4-2.667-0.8-2.667zM16 19.867c-1.467 0-2.667-1.067-2.667-2.667 0-0.4 0-0.8 0.133-1.2 0.133 0 0.4 0.133 0.533 0.133l0.933 0.267 0.533-0.8c0.133-0.267 0.267-0.533 0.533-0.667v0 0c0.133 0.267 0.4 0.533 0.533 0.8l0.533 0.8 0.933-0.267c0.133 0 0.4-0.133 0.533-0.133 0 0.4 0.133 0.8 0.133 1.2 0 1.333-1.2 2.533-2.667 2.533z'/></svg>") no-repeat left 0px top -2px;
-	--O-Flower-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.333-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467zM19.333 14.533c-0.267 0-1.6 0.267-1.6 0.267s-1.067-1.6-1.733-1.6-1.6 1.6-1.6 1.6-1.333-0.267-1.6-0.267-0.667 1.333-0.667 2.667c0 2.4 1.733 4 4 4s4-1.6 4-4c-0.133-1.333-0.4-2.667-0.8-2.667zM16 19.867c-1.467 0-2.667-1.067-2.667-2.667 0-0.4 0-0.8 0.133-1.2 0.133 0 0.4 0.133 0.533 0.133l0.933 0.267 0.533-0.8c0.133-0.267 0.267-0.533 0.533-0.667v0 0c0.133 0.267 0.4 0.533 0.533 0.8l0.533 0.8 0.933-0.267c0.133 0 0.4-0.133 0.533-0.133 0 0.4 0.133 0.8 0.133 1.2 0 1.333-1.2 2.533-2.667 2.533z'/></svg>") no-repeat left 0px top -2px;
+	--Os-Flower-on:url("data:image/svg+xml;utf8,<svg fill='rgb(235, 87, 87)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.333-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467zM19.333 14.533c-0.267 0-1.6 0.267-1.6 0.267s-1.067-1.6-1.733-1.6-1.6 1.6-1.6 1.6-1.333-0.267-1.6-0.267-0.667 1.333-0.667 2.667c0 2.4 1.733 4 4 4s4-1.6 4-4c-0.133-1.333-0.4-2.667-0.8-2.667zM16 19.867c-1.467 0-2.667-1.067-2.667-2.667 0-0.4 0-0.8 0.133-1.2 0.133 0 0.4 0.133 0.533 0.133l0.933 0.267 0.533-0.8c0.133-0.267 0.267-0.533 0.533-0.667v0 0c0.133 0.267 0.4 0.533 0.533 0.8l0.533 0.8 0.933-0.267c0.133 0 0.4-0.133 0.533-0.133 0 0.4 0.133 0.8 0.133 1.2 0 1.333-1.2 2.533-2.667 2.533z'/></svg>") no-repeat left 0px top -2px;
+	--Os-Flower-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.333-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467zM19.333 14.533c-0.267 0-1.6 0.267-1.6 0.267s-1.067-1.6-1.733-1.6-1.6 1.6-1.6 1.6-1.333-0.267-1.6-0.267-0.667 1.333-0.667 2.667c0 2.4 1.733 4 4 4s4-1.6 4-4c-0.133-1.333-0.4-2.667-0.8-2.667zM16 19.867c-1.467 0-2.667-1.067-2.667-2.667 0-0.4 0-0.8 0.133-1.2 0.133 0 0.4 0.133 0.533 0.133l0.933 0.267 0.533-0.8c0.133-0.267 0.267-0.533 0.533-0.667v0 0c0.133 0.267 0.4 0.533 0.533 0.8l0.533 0.8 0.933-0.267c0.133 0 0.4-0.133 0.533-0.133 0 0.4 0.133 0.8 0.133 1.2 0 1.333-1.2 2.533-2.667 2.533z'/></svg>") no-repeat left 0px top -2px;
 	
-	--O-Wind-on:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.333-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467zM18.4 13.2h-0.667c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h0.667c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667h-6.267c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h6.267c1.067 0 1.867-0.8 1.867-1.867 0-1.333-0.8-2.133-1.867-2.133zM14.667 17.733h-2.533c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h2.533c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667h-0.667c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h0.667c1.067 0 1.867-0.8 1.867-1.867s-0.8-2.133-1.867-2.133z'/></svg>") no-repeat left 0px top -2px;
-	--O-Wind-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.333-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467zM18.4 13.2h-0.667c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h0.667c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667h-6.267c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h6.267c1.067 0 1.867-0.8 1.867-1.867 0-1.333-0.8-2.133-1.867-2.133zM14.667 17.733h-2.533c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h2.533c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667h-0.667c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h0.667c1.067 0 1.867-0.8 1.867-1.867s-0.8-2.133-1.867-2.133z'/></svg>") no-repeat left 0px top -2px;
+	--Os-Wind-on:url("data:image/svg+xml;utf8,<svg fill='rgb(235, 87, 87)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.333-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467zM18.4 13.2h-0.667c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h0.667c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667h-6.267c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h6.267c1.067 0 1.867-0.8 1.867-1.867 0-1.333-0.8-2.133-1.867-2.133zM14.667 17.733h-2.533c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h2.533c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667h-0.667c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h0.667c1.067 0 1.867-0.8 1.867-1.867s-0.8-2.133-1.867-2.133z'/></svg>") no-repeat left 0px top -2px;
+	--Os-Wind-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.333-6.933-7.067-6.933zM16 22.4c-3.067 0-5.467-2.4-5.467-5.467 0-2.933 2.4-5.467 5.467-5.467s5.467 2.4 5.467 5.467c0 2.933-2.533 5.467-5.467 5.467zM18.4 13.2h-0.667c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h0.667c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667h-6.267c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h6.267c1.067 0 1.867-0.8 1.867-1.867 0-1.333-0.8-2.133-1.867-2.133zM14.667 17.733h-2.533c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h2.533c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667h-0.667c-0.4 0-0.667 0.267-0.667 0.667s0.267 0.667 0.667 0.667h0.667c1.067 0 1.867-0.8 1.867-1.867s-0.8-2.133-1.867-2.133z'/></svg>") no-repeat left 0px top -2px;
 	
-	--O-conceal-on:url("data:image/svg+xml;utf8,<svg fill='rgb(185, 136, 255)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 10.667c-3.733 0-6.667 2.933-6.667 6.667 0 3.6 3.067 6.667 6.667 6.667 3.733 0 6.667-3.067 6.667-6.667 0-3.733-3.067-6.667-6.667-6.667zM16 22.533c-2.933 0-5.2-2.267-5.2-5.2s2.267-5.2 5.2-5.2c2.267 0 4.133 1.467 4.933 3.467-0.133 0-0.4 0-0.4 0.133-0.533 0.533-0.933 0.8-1.467 1.2 0 0-0.133 0-0.133 0.133-0.533 0.267-1.2 0.533-1.733 0.533 0 0 0 0-0.133 0-0.4 0.133-0.667 0.133-1.067 0.133-0.267 0-0.667 0-0.933-0.133h-0.133c-0.533-0.133-1.2-0.267-1.6-0.533-0.133-0.133-0.133-0.133-0.133-0.133-0.533-0.267-1.067-0.667-1.467-1.067-0.133-0.133-0.533-0.133-0.8 0-0.133 0.133-0.133 0.533 0 0.8 0.4 0.4 0.8 0.8 1.2 1.067l-0.933 0.8c-0.133 0.133-0.133 0.533 0.133 0.8 0.133 0.133 0.133 0.133 0.4 0.133 0.133 0 0.267-0.133 0.4-0.133l0.933-1.2c0.4 0.133 0.8 0.267 1.2 0.4l-0.267 1.2c-0.133 0.267 0.133 0.533 0.4 0.667h0.267c0.267 0 0.533-0.133 0.533-0.4l0.267-1.2h1.467l0.267 1.2c0.133 0.267 0.267 0.4 0.533 0.4h0.133c0.267-0.133 0.533-0.4 0.4-0.667l-0.267-1.2c0.4-0.133 0.8-0.267 1.2-0.4l0.933 1.2c0.133 0.133 0.267 0.133 0.4 0.133s0.267 0 0.4-0.133c0 0 0-0.133 0.133-0.133-0.933 1.867-2.8 3.333-5.067 3.333zM20.933 18.933c0-0.133 0-0.267-0.133-0.4l-0.8-1.067c0.4-0.267 0.8-0.533 1.067-0.8 0 0.267 0 0.533 0 0.667 0.133 0.533 0 1.067-0.133 1.6z'/></svg>") no-repeat left 0px top -2px;
-	--O-conceal-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 10.667c-3.733 0-6.667 2.933-6.667 6.667 0 3.6 3.067 6.667 6.667 6.667 3.733 0 6.667-3.067 6.667-6.667 0-3.733-3.067-6.667-6.667-6.667zM16 22.533c-2.933 0-5.2-2.267-5.2-5.2s2.267-5.2 5.2-5.2c2.267 0 4.133 1.467 4.933 3.467-0.133 0-0.4 0-0.4 0.133-0.533 0.533-0.933 0.8-1.467 1.2 0 0-0.133 0-0.133 0.133-0.533 0.267-1.2 0.533-1.733 0.533 0 0 0 0-0.133 0-0.4 0.133-0.667 0.133-1.067 0.133-0.267 0-0.667 0-0.933-0.133h-0.133c-0.533-0.133-1.2-0.267-1.6-0.533-0.133-0.133-0.133-0.133-0.133-0.133-0.533-0.267-1.067-0.667-1.467-1.067-0.133-0.133-0.533-0.133-0.8 0-0.133 0.133-0.133 0.533 0 0.8 0.4 0.4 0.8 0.8 1.2 1.067l-0.933 0.8c-0.133 0.133-0.133 0.533 0.133 0.8 0.133 0.133 0.133 0.133 0.4 0.133 0.133 0 0.267-0.133 0.4-0.133l0.933-1.2c0.4 0.133 0.8 0.267 1.2 0.4l-0.267 1.2c-0.133 0.267 0.133 0.533 0.4 0.667h0.267c0.267 0 0.533-0.133 0.533-0.4l0.267-1.2h1.467l0.267 1.2c0.133 0.267 0.267 0.4 0.533 0.4h0.133c0.267-0.133 0.533-0.4 0.4-0.667l-0.267-1.2c0.4-0.133 0.8-0.267 1.2-0.4l0.933 1.2c0.133 0.133 0.267 0.133 0.4 0.133s0.267 0 0.4-0.133c0 0 0-0.133 0.133-0.133-0.933 1.867-2.8 3.333-5.067 3.333zM20.933 18.933c0-0.133 0-0.267-0.133-0.4l-0.8-1.067c0.4-0.267 0.8-0.533 1.067-0.8 0 0.267 0 0.533 0 0.667 0.133 0.533 0 1.067-0.133 1.6z'/></svg>") no-repeat left 0px top -2px;
+	--Os-Ocean-on:url("data:image/svg+xml;utf8,<svg fill='rgb(235, 87, 87)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 10.667c-3.733 0-6.667 2.933-6.667 6.667 0 3.6 3.067 6.667 6.667 6.667 3.733 0 6.667-3.067 6.667-6.667 0-3.733-3.067-6.667-6.667-6.667zM16 22.533c-2.933 0-5.2-2.267-5.2-5.2s2.267-5.2 5.2-5.2c2.8 0 5.2 2.4 5.2 5.2s-2.4 5.2-5.2 5.2zM16.133 17.2c-1.867-1.067-3.867-2.133-3.867 0s1.733 3.867 3.867 3.867 3.867-1.733 3.867-3.867-2.133 1.067-3.867 0z'/></svg>") no-repeat left 0px top -2px;
+	--Os-Ocean-off:url("data:image/svg+xml;utf8,<svg fill='rgb(175, 177, 178)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 10.667c-3.733 0-6.667 2.933-6.667 6.667 0 3.6 3.067 6.667 6.667 6.667 3.733 0 6.667-3.067 6.667-6.667 0-3.733-3.067-6.667-6.667-6.667zM16 22.533c-2.933 0-5.2-2.267-5.2-5.2s2.267-5.2 5.2-5.2c2.8 0 5.2 2.4 5.2 5.2s-2.4 5.2-5.2 5.2zM16.133 17.2c-1.867-1.067-3.867-2.133-3.867 0s1.733 3.867 3.867 3.867 3.867-1.733 3.867-3.867-2.133 1.067-3.867 0z'/></svg>") no-repeat left 0px top -2px;
 	
-	--O-tabbarVertical-on:url("data:image/svg+xml;utf8,<svg fill='rgb(185, 136, 255)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M21.067 10.667h-10.133c-0.8 0-1.6 0.8-1.6 1.6v10c0 0.933 0.8 1.733 1.6 1.733h10c0.933 0 1.6-0.8 1.6-1.6v-10.133c0.133-0.8-0.667-1.6-1.467-1.6zM21.333 22.4c0 0.133-0.133 0.267-0.267 0.267h-7.333v-7.733h7.6v7.467zM21.333 13.6h-10.667v-1.333c0-0.133 0.133-0.267 0.267-0.267h10c0.267 0 0.4 0.133 0.4 0.267v1.333z'/></svg>") no-repeat left 0px top -2px;
-	--O-tabbarVertical-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M21.067 10.667h-10.133c-0.8 0-1.6 0.8-1.6 1.6v10c0 0.933 0.8 1.733 1.6 1.733h10c0.933 0 1.6-0.8 1.6-1.6v-10.133c0.133-0.8-0.667-1.6-1.467-1.6zM21.333 22.4c0 0.133-0.133 0.267-0.267 0.267h-7.333v-7.733h7.6v7.467zM21.333 13.6h-10.667v-1.333c0-0.133 0.133-0.267 0.267-0.267h10c0.267 0 0.4 0.133 0.4 0.267v1.333z'/></svg>") no-repeat left 0px top -2px;
+	--Os-Mountain-on:url("data:image/svg+xml;utf8,<svg fill='rgb(235, 87, 87)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.333-6.933-7.067-6.933zM14.667 22.267c-1.2-0.267-2.267-0.933-2.933-1.867l2.533-4.4 2.133 3.6-1.733 2.667zM17.867 19.867l0.667-1.2 1.2 2.133c-0.933 0.933-2.133 1.467-3.467 1.467l1.6-2.4zM16 11.467c3.067 0 5.467 2.4 5.467 5.467 0 0.933-0.267 1.867-0.667 2.533l-1.6-2.533c-0.267-0.4-0.667-0.4-0.933-0.267-0.133 0-0.133 0.133-0.267 0.267l-0.667 1.2-2.4-4c-0.267-0.4-0.667-0.4-0.933-0.267-0.133 0-0.133 0.133-0.267 0.267l-2.8 4.8c-0.267-0.667-0.4-1.333-0.4-2 0-3.067 2.4-5.467 5.467-5.467z'/></svg>") no-repeat left 0px top -2px;
+	--Os-Mountain-off:url("data:image/svg+xml;utf8,<svg fill='rgb(175, 177, 178)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 9.867c-3.867 0-6.933 3.2-6.933 6.933 0 3.867 3.2 7.067 6.933 7.067 3.867 0 7.067-3.2 7.067-7.067-0.133-3.733-3.333-6.933-7.067-6.933zM14.667 22.267c-1.2-0.267-2.267-0.933-2.933-1.867l2.533-4.4 2.133 3.6-1.733 2.667zM17.867 19.867l0.667-1.2 1.2 2.133c-0.933 0.933-2.133 1.467-3.467 1.467l1.6-2.4zM16 11.467c3.067 0 5.467 2.4 5.467 5.467 0 0.933-0.267 1.867-0.667 2.533l-1.6-2.533c-0.267-0.4-0.667-0.4-0.933-0.267-0.133 0-0.133 0.133-0.267 0.267l-0.667 1.2-2.4-4c-0.267-0.4-0.667-0.4-0.933-0.267-0.133 0-0.133 0.133-0.267 0.267l-2.8 4.8c-0.267-0.667-0.4-1.333-0.4-2 0-3.067 2.4-5.467 5.467-5.467z'/></svg>") no-repeat left 0px top -2px;
 	
-	--O-topBar-on:url("data:image/svg+xml;utf8,<svg fill='rgb(185, 136, 255)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M21.067 10.667h-1.867c-0.133 0-0.133 0-0.267 0h-3.733c-0.133 0-0.133 0-0.267 0h-4c-0.8 0-1.6 0.8-1.6 1.6v10c0 0.933 0.8 1.733 1.6 1.733h10c0.933 0 1.6-0.8 1.6-1.6v-10.133c0.133-0.8-0.667-1.6-1.467-1.6zM15.333 12h2.4l-1.067 1.6h-2.4l1.067-1.6zM10.667 12.267c0-0.133 0.133-0.267 0.267-0.267h2.8l-1.067 1.6h-2v-1.333zM21.333 22.4c0 0.133-0.133 0.267-0.267 0.267h-10.133c-0.133 0-0.267-0.133-0.267-0.267v-7.333h10.667v7.333zM21.333 13.6h-3.067l1.067-1.6h1.6c0.267 0 0.4 0.133 0.4 0.267 0 0 0 1.333 0 1.333z'/></svg>") no-repeat left 0px top -2px;
-	--O-topBar-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M21.067 10.667h-1.867c-0.133 0-0.133 0-0.267 0h-3.733c-0.133 0-0.133 0-0.267 0h-4c-0.8 0-1.6 0.8-1.6 1.6v10c0 0.933 0.8 1.733 1.6 1.733h10c0.933 0 1.6-0.8 1.6-1.6v-10.133c0.133-0.8-0.667-1.6-1.467-1.6zM15.333 12h2.4l-1.067 1.6h-2.4l1.067-1.6zM10.667 12.267c0-0.133 0.133-0.267 0.267-0.267h2.8l-1.067 1.6h-2v-1.333zM21.333 22.4c0 0.133-0.133 0.267-0.267 0.267h-10.133c-0.133 0-0.267-0.133-0.267-0.267v-7.333h10.667v7.333zM21.333 13.6h-3.067l1.067-1.6h1.6c0.267 0 0.4 0.133 0.4 0.267 0 0 0 1.333 0 1.333z'/></svg>") no-repeat left 0px top -2px;
+	--Os-conceal-on:url("data:image/svg+xml;utf8,<svg fill='rgb(235, 87, 87)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 10.667c-3.733 0-6.667 2.933-6.667 6.667 0 3.6 3.067 6.667 6.667 6.667 3.733 0 6.667-3.067 6.667-6.667 0-3.733-3.067-6.667-6.667-6.667zM16 22.533c-2.933 0-5.2-2.267-5.2-5.2s2.267-5.2 5.2-5.2c2.267 0 4.133 1.467 4.933 3.467-0.133 0-0.4 0-0.4 0.133-0.533 0.533-0.933 0.8-1.467 1.2 0 0-0.133 0-0.133 0.133-0.533 0.267-1.2 0.533-1.733 0.533 0 0 0 0-0.133 0-0.4 0.133-0.667 0.133-1.067 0.133-0.267 0-0.667 0-0.933-0.133h-0.133c-0.533-0.133-1.2-0.267-1.6-0.533-0.133-0.133-0.133-0.133-0.133-0.133-0.533-0.267-1.067-0.667-1.467-1.067-0.133-0.133-0.533-0.133-0.8 0-0.133 0.133-0.133 0.533 0 0.8 0.4 0.4 0.8 0.8 1.2 1.067l-0.933 0.8c-0.133 0.133-0.133 0.533 0.133 0.8 0.133 0.133 0.133 0.133 0.4 0.133 0.133 0 0.267-0.133 0.4-0.133l0.933-1.2c0.4 0.133 0.8 0.267 1.2 0.4l-0.267 1.2c-0.133 0.267 0.133 0.533 0.4 0.667h0.267c0.267 0 0.533-0.133 0.533-0.4l0.267-1.2h1.467l0.267 1.2c0.133 0.267 0.267 0.4 0.533 0.4h0.133c0.267-0.133 0.533-0.4 0.4-0.667l-0.267-1.2c0.4-0.133 0.8-0.267 1.2-0.4l0.933 1.2c0.133 0.133 0.267 0.133 0.4 0.133s0.267 0 0.4-0.133c0 0 0-0.133 0.133-0.133-0.933 1.867-2.8 3.333-5.067 3.333zM20.933 18.933c0-0.133 0-0.267-0.133-0.4l-0.8-1.067c0.4-0.267 0.8-0.533 1.067-0.8 0 0.267 0 0.533 0 0.667 0.133 0.533 0 1.067-0.133 1.6z'/></svg>") no-repeat left 0px top -2px;
+	--Os-conceal-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 10.667c-3.733 0-6.667 2.933-6.667 6.667 0 3.6 3.067 6.667 6.667 6.667 3.733 0 6.667-3.067 6.667-6.667 0-3.733-3.067-6.667-6.667-6.667zM16 22.533c-2.933 0-5.2-2.267-5.2-5.2s2.267-5.2 5.2-5.2c2.267 0 4.133 1.467 4.933 3.467-0.133 0-0.4 0-0.4 0.133-0.533 0.533-0.933 0.8-1.467 1.2 0 0-0.133 0-0.133 0.133-0.533 0.267-1.2 0.533-1.733 0.533 0 0 0 0-0.133 0-0.4 0.133-0.667 0.133-1.067 0.133-0.267 0-0.667 0-0.933-0.133h-0.133c-0.533-0.133-1.2-0.267-1.6-0.533-0.133-0.133-0.133-0.133-0.133-0.133-0.533-0.267-1.067-0.667-1.467-1.067-0.133-0.133-0.533-0.133-0.8 0-0.133 0.133-0.133 0.533 0 0.8 0.4 0.4 0.8 0.8 1.2 1.067l-0.933 0.8c-0.133 0.133-0.133 0.533 0.133 0.8 0.133 0.133 0.133 0.133 0.4 0.133 0.133 0 0.267-0.133 0.4-0.133l0.933-1.2c0.4 0.133 0.8 0.267 1.2 0.4l-0.267 1.2c-0.133 0.267 0.133 0.533 0.4 0.667h0.267c0.267 0 0.533-0.133 0.533-0.4l0.267-1.2h1.467l0.267 1.2c0.133 0.267 0.267 0.4 0.533 0.4h0.133c0.267-0.133 0.533-0.4 0.4-0.667l-0.267-1.2c0.4-0.133 0.8-0.267 1.2-0.4l0.933 1.2c0.133 0.133 0.267 0.133 0.4 0.133s0.267 0 0.4-0.133c0 0 0-0.133 0.133-0.133-0.933 1.867-2.8 3.333-5.067 3.333zM20.933 18.933c0-0.133 0-0.267-0.133-0.4l-0.8-1.067c0.4-0.267 0.8-0.533 1.067-0.8 0 0.267 0 0.533 0 0.667 0.133 0.533 0 1.067-0.133 1.6z'/></svg>") no-repeat left 0px top -2px;
 	
-	--O-bulletThreading-on:url("data:image/svg+xml;utf8,<svg fill='rgb(185, 136, 255)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M20 20c1.067 0 2 0.933 2 2s-0.933 2-2 2-2-0.933-2-2c0-1.067 0.933-2 2-2zM18.4 12c1.6 0 2.933 1.333 2.933 2.933s-1.333 2.933-2.933 2.933h-4.667c-0.933 0-1.6 0.8-1.6 1.6 0 0.933 0.8 1.6 1.6 1.6h2.933c0.267 0 0.667 0.267 0.667 0.667 0 0.267-0.267 0.667-0.667 0.667h-2.933c-1.733 0.267-3.067-1.067-3.067-2.8s1.333-2.933 3.067-2.933h4.667c0.933 0 1.6-0.8 1.6-1.6s-0.8-1.733-1.6-1.733h-2.933c-0.533 0-0.8-0.4-0.8-0.667s0.267-0.667 0.667-0.667c0 0 3.067 0 3.067 0zM20 21.333c-0.267 0-0.667 0.267-0.667 0.667 0 0.267 0.267 0.667 0.667 0.667s0.667-0.267 0.667-0.667c0-0.4-0.267-0.667-0.667-0.667v0zM12 10.667c1.067 0 2 0.933 2 2s-0.933 2-2 2c-1.067 0-2-0.933-2-2s0.933-2 2-2zM12 12c-0.267 0-0.667 0.267-0.667 0.667s0.4 0.667 0.667 0.667c0.4 0 0.667-0.267 0.667-0.667v0c0-0.4-0.267-0.667-0.667-0.667z'/></svg>") no-repeat left 0px top -2px;
-	--O-bulletThreading-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M20 20c1.067 0 2 0.933 2 2s-0.933 2-2 2-2-0.933-2-2c0-1.067 0.933-2 2-2zM18.4 12c1.6 0 2.933 1.333 2.933 2.933s-1.333 2.933-2.933 2.933h-4.667c-0.933 0-1.6 0.8-1.6 1.6 0 0.933 0.8 1.6 1.6 1.6h2.933c0.267 0 0.667 0.267 0.667 0.667 0 0.267-0.267 0.667-0.667 0.667h-2.933c-1.733 0.267-3.067-1.067-3.067-2.8s1.333-2.933 3.067-2.933h4.667c0.933 0 1.6-0.8 1.6-1.6s-0.8-1.733-1.6-1.733h-2.933c-0.533 0-0.8-0.4-0.8-0.667s0.267-0.667 0.667-0.667c0 0 3.067 0 3.067 0zM20 21.333c-0.267 0-0.667 0.267-0.667 0.667 0 0.267 0.267 0.667 0.667 0.667s0.667-0.267 0.667-0.667c0-0.4-0.267-0.667-0.667-0.667v0zM12 10.667c1.067 0 2 0.933 2 2s-0.933 2-2 2c-1.067 0-2-0.933-2-2s0.933-2 2-2zM12 12c-0.267 0-0.667 0.267-0.667 0.667s0.4 0.667 0.667 0.667c0.4 0 0.667-0.267 0.667-0.667v0c0-0.4-0.267-0.667-0.667-0.667z'/></svg>") no-repeat left 0px top -2px;
+	--Os-tabbarVertical-on:url("data:image/svg+xml;utf8,<svg fill='rgb(235, 87, 87)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M21.067 10.667h-10.133c-0.8 0-1.6 0.8-1.6 1.6v10c0 0.933 0.8 1.733 1.6 1.733h10c0.933 0 1.6-0.8 1.6-1.6v-10.133c0.133-0.8-0.667-1.6-1.467-1.6zM21.333 22.4c0 0.133-0.133 0.267-0.267 0.267h-7.333v-7.733h7.6v7.467zM21.333 13.6h-10.667v-1.333c0-0.133 0.133-0.267 0.267-0.267h10c0.267 0 0.4 0.133 0.4 0.267v1.333z'/></svg>") no-repeat left 0px top -2px;
+	--Os-tabbarVertical-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M21.067 10.667h-10.133c-0.8 0-1.6 0.8-1.6 1.6v10c0 0.933 0.8 1.733 1.6 1.733h10c0.933 0 1.6-0.8 1.6-1.6v-10.133c0.133-0.8-0.667-1.6-1.467-1.6zM21.333 22.4c0 0.133-0.133 0.267-0.267 0.267h-7.333v-7.733h7.6v7.467zM21.333 13.6h-10.667v-1.333c0-0.133 0.133-0.267 0.267-0.267h10c0.267 0 0.4 0.133 0.4 0.267v1.333z'/></svg>") no-repeat left 0px top -2px;
 	
+	--Os-topBar-on:url("data:image/svg+xml;utf8,<svg fill='rgb(235, 87, 87)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M21.067 10.667h-1.867c-0.133 0-0.133 0-0.267 0h-3.733c-0.133 0-0.133 0-0.267 0h-4c-0.8 0-1.6 0.8-1.6 1.6v10c0 0.933 0.8 1.733 1.6 1.733h10c0.933 0 1.6-0.8 1.6-1.6v-10.133c0.133-0.8-0.667-1.6-1.467-1.6zM15.333 12h2.4l-1.067 1.6h-2.4l1.067-1.6zM10.667 12.267c0-0.133 0.133-0.267 0.267-0.267h2.8l-1.067 1.6h-2v-1.333zM21.333 22.4c0 0.133-0.133 0.267-0.267 0.267h-10.133c-0.133 0-0.267-0.133-0.267-0.267v-7.333h10.667v7.333zM21.333 13.6h-3.067l1.067-1.6h1.6c0.267 0 0.4 0.133 0.4 0.267 0 0 0 1.333 0 1.333z'/></svg>") no-repeat left 0px top -2px;
+	--Os-topBar-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M21.067 10.667h-1.867c-0.133 0-0.133 0-0.267 0h-3.733c-0.133 0-0.133 0-0.267 0h-4c-0.8 0-1.6 0.8-1.6 1.6v10c0 0.933 0.8 1.733 1.6 1.733h10c0.933 0 1.6-0.8 1.6-1.6v-10.133c0.133-0.8-0.667-1.6-1.467-1.6zM15.333 12h2.4l-1.067 1.6h-2.4l1.067-1.6zM10.667 12.267c0-0.133 0.133-0.267 0.267-0.267h2.8l-1.067 1.6h-2v-1.333zM21.333 22.4c0 0.133-0.133 0.267-0.267 0.267h-10.133c-0.133 0-0.267-0.133-0.267-0.267v-7.333h10.667v7.333zM21.333 13.6h-3.067l1.067-1.6h1.6c0.267 0 0.4 0.133 0.4 0.267 0 0 0 1.333 0 1.333z'/></svg>") no-repeat left 0px top -2px;
+	
+	--Os-bulletThreading-on:url("data:image/svg+xml;utf8,<svg fill='rgb(235, 87, 87)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M20 20c1.067 0 2 0.933 2 2s-0.933 2-2 2-2-0.933-2-2c0-1.067 0.933-2 2-2zM18.4 12c1.6 0 2.933 1.333 2.933 2.933s-1.333 2.933-2.933 2.933h-4.667c-0.933 0-1.6 0.8-1.6 1.6 0 0.933 0.8 1.6 1.6 1.6h2.933c0.267 0 0.667 0.267 0.667 0.667 0 0.267-0.267 0.667-0.667 0.667h-2.933c-1.733 0.267-3.067-1.067-3.067-2.8s1.333-2.933 3.067-2.933h4.667c0.933 0 1.6-0.8 1.6-1.6s-0.8-1.733-1.6-1.733h-2.933c-0.533 0-0.8-0.4-0.8-0.667s0.267-0.667 0.667-0.667c0 0 3.067 0 3.067 0zM20 21.333c-0.267 0-0.667 0.267-0.667 0.667 0 0.267 0.267 0.667 0.667 0.667s0.667-0.267 0.667-0.667c0-0.4-0.267-0.667-0.667-0.667v0zM12 10.667c1.067 0 2 0.933 2 2s-0.933 2-2 2c-1.067 0-2-0.933-2-2s0.933-2 2-2zM12 12c-0.267 0-0.667 0.267-0.667 0.667s0.4 0.667 0.667 0.667c0.4 0 0.667-0.267 0.667-0.667v0c0-0.4-0.267-0.667-0.667-0.667z'/></svg>") no-repeat left 0px top -2px;
+	--Os-bulletThreading-off:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M20 20c1.067 0 2 0.933 2 2s-0.933 2-2 2-2-0.933-2-2c0-1.067 0.933-2 2-2zM18.4 12c1.6 0 2.933 1.333 2.933 2.933s-1.333 2.933-2.933 2.933h-4.667c-0.933 0-1.6 0.8-1.6 1.6 0 0.933 0.8 1.6 1.6 1.6h2.933c0.267 0 0.667 0.267 0.667 0.667 0 0.267-0.267 0.667-0.667 0.667h-2.933c-1.733 0.267-3.067-1.067-3.067-2.8s1.333-2.933 3.067-2.933h4.667c0.933 0 1.6-0.8 1.6-1.6s-0.8-1.733-1.6-1.733h-2.933c-0.533 0-0.8-0.4-0.8-0.667s0.267-0.667 0.667-0.667c0 0 3.067 0 3.067 0zM20 21.333c-0.267 0-0.667 0.267-0.667 0.667 0 0.267 0.267 0.667 0.667 0.667s0.667-0.267 0.667-0.667c0-0.4-0.267-0.667-0.667-0.667v0zM12 10.667c1.067 0 2 0.933 2 2s-0.933 2-2 2c-1.067 0-2-0.933-2-2s0.933-2 2-2zM12 12c-0.267 0-0.667 0.267-0.667 0.667s0.4 0.667 0.667 0.667c0.4 0 0.667-0.267 0.667-0.667v0c0-0.4-0.267-0.667-0.667-0.667z'/></svg>") no-repeat left 0px top -2px;
+	
+	--Os-settings:url("data:image/svg+xml;utf8,<svg fill='rgb(55, 53, 47)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M16 21.2h-6c-0.4 0-0.667-0.267-0.667-0.667 0-0.267 0.267-0.533 0.667-0.533h6c0.267-1.067 1.2-1.867 2.4-1.867 1.067 0 2.133 0.8 2.4 1.867h1.067c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667h-1.067c-0.267 1.067-1.2 1.867-2.4 1.867s-2.133-0.8-2.4-2v0zM17.2 20.667c0 0.667 0.533 1.2 1.2 1.2s1.2-0.533 1.2-1.2c0-0.667-0.533-1.2-1.2-1.2s-1.2 0.533-1.2 1.2zM11.867 14.667h-1.867c-0.4 0-0.667-0.267-0.667-0.667s0.267-0.667 0.667-0.667h1.867c0.267-1.067 1.2-1.867 2.4-1.867 1.067 0 2.133 0.8 2.4 1.867h5.333c0.4 0 0.667 0.267 0.667 0.667s-0.267 0.667-0.667 0.667h-5.333c-0.267 1.067-1.2 1.867-2.4 1.867-1.067-0.133-2-0.8-2.4-1.867zM13.067 14c0 0.667 0.533 1.2 1.2 1.2s1.2-0.533 1.2-1.2-0.533-1.2-1.2-1.2c-0.667 0-1.2 0.533-1.2 1.2z'/></svg>") no-repeat left -4px top -4px;
+
 }
 
 /* PDF */
@@ -345,5 +534,5 @@ body{
 
 
 #buttonForest.button_on,#buttonForest.button_off{
-	background:var(--O-Forest-on);
+	background:var(--Os-Forest-on);
 }

@@ -1,0 +1,74 @@
+#buttonForest.button_off{
+	background:var(--Os-Forest-off);
+}
+#buttonFlower.button_on{
+	background:var(--Os-Flower-on);
+}
+#buttonFlower.button_off{
+	background:var(--Os-Flower-off);
+}
+#buttonWind.button_on{
+	background:var(--Os-Wind-on);
+}
+#buttonWind.button_off{
+	background:var(--Os-Wind-off);
+}
+#buttonOcean.button_on{
+	background:var(--Os-Ocean-on);
+}
+#buttonOcean.button_off{
+	background:var(--Os-Ocean-off);
+}
+#buttonMountain.button_on{
+	background:var(--Os-Mountain-on);
+}
+#buttonMountain.button_off{
+	background:var(--Os-Mountain-off);
+}
+#conceal.button_on{
+	background:var(--Os-conceal-on);
+}
+#conceal.button_off{
+	background:var(--Os-conceal-off);
+}
+#tabbarVertical.button_on{
+	background:var(--Os-tabbarVertical-on);
+}
+#tabbarVertical.button_off{
+	background:var(--Os-tabbarVertical-off);
+}
+#topBar.button_on{
+	background:var(--Os-topBar-on);
+}
+#topBar.button_off{
+	background:var(--Os-topBar-off);
+}
+#bulletThreading.button_on{
+	background:var(--Os-bulletThreading-on);
+}
+#bulletThreading.button_off{
+	background:var(--Os-bulletThreading-off);
+}
+
+
+#odysseyToolbar{
+	border-bottom: 1px solid var(--b3-theme-surface-lighter);
+	margin: 0 4px 4px 4px;
+	padding-bottom: 4px;
+	.b3-menu__item{
+		height:30px;
+		&:after{
+			content: attr(aria-label);
+			line-height: 30px;
+			padding:0 0 0 27px;
+		}
+		&:hover{
+			background-color: var(--Os-list-background)!important;
+		}
+	}
+}
+
+
+#commonMenu:not([data-name="barmode"]) #odysseyToolbar{
+	display:none;
+}

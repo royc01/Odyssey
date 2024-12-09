@@ -270,7 +270,6 @@ window.theme.changeThemeMode(
     node.className = className;
     return node;
   }
-  
 
 /* 操作 */ 
 
@@ -313,7 +312,7 @@ function MenuShow() {
 
 function InsertMenuItem(selectid,selecttype){
   let commonMenu = document.querySelector("#commonMenu .b3-menu__items")
-  let  readonly = commonMenu.querySelector(".b3-menu__item--readonly")
+  let  readonly = commonMenu.querySelector('[data-id="updateAndCreatedAt"]')
   let  selectview = commonMenu.querySelector('[id="viewselect"]')
   if(readonly){
     if(!selectview){
@@ -362,7 +361,7 @@ setTimeout(()=>ClickMonitor(),1000)
 function themeButton() {
 	odysseyThemeToolbarAddButton(
         "buttonForest",
-        "toolbar__item b3-tooltips b3-tooltips__sw",
+        "b3-menu__item",
 		"Forest",
 		'light',
         () => {
@@ -376,7 +375,7 @@ function themeButton() {
     );
 		odysseyThemeToolbarAddButton(
         "buttonFlower",
-        "toolbar__item b3-tooltips b3-tooltips__sw",
+        "b3-menu__item",
 		"Flower",
 		'light',
         () => {
@@ -390,7 +389,7 @@ function themeButton() {
     );
 		odysseyThemeToolbarAddButton(
         "buttonWind",
-        "toolbar__item b3-tooltips b3-tooltips__sw",
+        "b3-menu__item",
 		"Wind",
 		'light',
         () => {
@@ -404,7 +403,7 @@ function themeButton() {
     );
 		odysseyThemeToolbarAddButton(
         "buttonOcean",
-        "toolbar__item b3-tooltips b3-tooltips__sw",
+        "b3-menu__item",
 		"Ocean",
 		'dark',
         () => {
@@ -418,7 +417,7 @@ function themeButton() {
     );
 	    odysseyThemeToolbarAddButton(
         "buttonMountain",
-        "toolbar__item b3-tooltips b3-tooltips__sw",
+        "b3-menu__item",
 		"Mountain",
 		'dark',
         () => {
@@ -437,7 +436,7 @@ function themeButton() {
 function concealMarkButton() {
     odysseyThemeToolplusAddButton(
         "conceal",
-        "toolbar__item b3-tooltips b3-tooltips__sw",
+        "b3-menu__item",
 		"挖空",
         () => {
             loadStyle("/appearance/themes/Odyssey/style/topbar/conceal-mark.css", "theme-color-style-conceal挖空").setAttribute("topBarcss", "conceal挖空");
@@ -453,7 +452,7 @@ function concealMarkButton() {
 function tabbarVerticalButton() {
     odysseyThemeToolplusAddButton(
         "tabbarVertical",
-        "toolbar__item b3-tooltips b3-tooltips__sw",
+        "b3-menu__item",
 		"垂直页签",
         () => {
             loadStyle("/appearance/themes/Odyssey/style/topbar/tab-bar-vertical.css", "theme-color-style-tabbar垂直").setAttribute("topBarcss", "tabbar垂直");
@@ -465,12 +464,28 @@ function tabbarVerticalButton() {
     );
 }
 
+/**---------------------------------------------------------插件-------------------------------------------------------------- */
+
+function OpluginButton() {
+    odysseyPluginsAddButton(
+        "Oplugin",
+        "toolbar__item b3-tooltips b3-tooltips__sw",
+		"收缩/展开插件",
+        () => {
+            loadStyle("/appearance/themes/Odyssey/style/topbar/Oplugin.css", "theme-color-style-plugin隐藏").setAttribute("Oplugin", "plugin隐藏");
+        },
+        () => {
+            document.getElementById("theme-color-style-plugin隐藏").remove();
+        },
+        true
+    );
+}
 /**---------------------------------------------------------顶栏-------------------------------------------------------------- */
 
 function topbarfixedButton() {
     odysseyThemeToolplusAddButton(
         "topBar",
-        "toolbar__item b3-tooltips b3-tooltips__sw",
+        "b3-menu__item",
 		"隐藏顶栏",
         () => {
             loadStyle("/appearance/themes/Odyssey/style/topbar/top-fixed.css", "theme-color-style-topbar隐藏").setAttribute("topBarcss", "topbar隐藏");
@@ -487,7 +502,7 @@ function topbarfixedButton() {
 function bulletThreading() {
     odysseyThemeToolplusAddButton(
         "bulletThreading",
-        "toolbar__item b3-tooltips b3-tooltips__sw",
+        "b3-menu__item",
 		"列表子弹线",
         () => {
             loadStyle("/appearance/themes/Odyssey/style/topbar/bullet-threading.css", "theme-color-style-列表子弹线").setAttribute("bulletThreading", "列表子弹线");
@@ -513,55 +528,6 @@ function qucuFiiter() {
 
 
 
-
-/**----------------------------------自动展开悬浮窗折叠列表,展开搜索条目折叠列表,聚焦单独列表-----体验优化----------------------------------*/
-
-function autoOpenList() {
-
-    setInterval(() => {
-        //找到所有的悬浮窗
-        var Preview = document.querySelectorAll("[data-oid]");
-	
-        //如果发现悬浮窗内首行是折叠列表就展开并打上标记
-        if (Preview.length != 0) {
-            for (let index = 0; index < Preview.length; index++) {
-                const element = Preview[index];
-                var item = element.children[1].children;
-
-                for (let index = 0; index < item.length; index++) {
-                    var obj = item[index].children[1]
-                    if (obj == null) continue;
-                    const element = obj.children[0].children[0];
-                    if (element == null) continue;
-                    if (element.className != "li") continue;//判断是否是列表
-                    if (element.getAttribute("foldTag") != null) continue;//判断是否存在标记
-                    if (element.getAttribute("foid") == 0) continue;//判断是折叠
-
-                    element.setAttribute("fold", 0);
-                    element.setAttribute("foldTag", true);
-                }
-            }
-        }
-
-        var searchPreview = document.querySelector("#searchPreview [data-doc-type='NodeListItem'].protyle-wysiwyg.protyle-wysiwyg--attr>div:nth-child(1)");
-        if (searchPreview != null && searchPreview.getAttribute("data-type") == "NodeListItem" && searchPreview.getAttribute("fold") == 1) {
-            if (searchPreview.getAttribute("foldTag") != null) return;//判断是否存在标记
-            searchPreview.setAttribute("fold", 0);
-            searchPreview.setAttribute("foldTag", true);
-        }
-
-        var contentLIst = document.querySelectorAll(".layout-tab-container>.fn__flex-1.protyle:not(.fn__none) [data-doc-type='NodeListItem'].protyle-wysiwyg.protyle-wysiwyg--attr>div:nth-child(1)");
-        for (let index = 0; index < contentLIst.length; index++) {
-            const element = contentLIst[index];
-            if (element != null && element.getAttribute("data-type") == "NodeListItem" && element.getAttribute("fold") == 1) {
-                if (element.getAttribute("foldTag") != null) return;//判断是否存在标记
-                element.setAttribute("fold", 0);
-                element.setAttribute("foldTag", true);
-            }
-        }
-
-    }, 500)
-}
 
 
 /**----------------------------------列表折叠内容预览查看---------------------------------- */
@@ -1017,6 +983,19 @@ async function 写入文件(path, filedata, then = null, obj = null, isDir = fal
         }, 200)
     });
 }
+//添加空白div//
+var odysseydragElement = document.createElement("div");
+odysseydragElement.id = "odysseydrag";
+var barForwardElement = document.getElementById("barForward");
+if (barForwardElement !== null) {
+    var parentElement = barForwardElement.parentNode;
+    parentElement.insertBefore(odysseydragElement, barForwardElement.nextSibling);
+    // 进行其他操作
+} else {
+    console.error("元素不存在");
+}
+odysseydragElement.style.cssText = "flex: 1; app-region: drag;"; 
+
 
 
 //+++++++++++++++++++++++++++++++++辅助API++++++++++++++++++++++++++++++++++++
@@ -1036,7 +1015,7 @@ function odysseyThemeToolbarAddButton(ButtonID, ButtonTitle , ButtonLabel, Mode,
     var odysseyToolbar = document.getElementById("odysseyToolbar");
     if (odysseyToolbar == null) {
         var toolbarEdit = document.getElementById("toolbarEdit");
-        var windowControls = document.getElementById("windowControls");
+        var windowControls = document.querySelector("#commonMenu .b3-menu__items")
 
         if (toolbarEdit == null && windowControls != null) {
             odysseyToolbar = document.createElement("div");
@@ -1048,7 +1027,7 @@ function odysseyThemeToolbarAddButton(ButtonID, ButtonTitle , ButtonLabel, Mode,
         }
     }
 
-    var addButton = addinsertCreateElement(odysseyToolbar, "div");
+    var addButton = addinsertCreateElement(odysseyToolbar, "button");
     addButton.style.float = "top";
 
 
@@ -1150,7 +1129,69 @@ function odysseyThemeToolplusAddButton(ButtonID, ButtonTitle, ButtonLabel, NoCli
         }
     }
 
-    var addButton = addinsertCreateElement(odysseyToolbar, "div");
+    var addButton = addinsertCreateElement(odysseyToolbar, "button");
+    addButton.style.float = "top";
+
+
+    
+    addButton.id = ButtonID;
+	addButton.setAttribute("class", ButtonTitle + " button_off");
+	addButton.setAttribute("aria-label", ButtonLabel)
+	
+
+	var offNo = '0';
+
+
+    if (Memory == true) {
+        offNo = getItem(ButtonID);
+        if (offNo == "1") {
+			addButton.setAttribute("class", ButtonTitle + " button_on");
+            setItem(ButtonID, "0");
+            NoClickRunFun(addButton);
+            setItem(ButtonID, "1");
+        } else if (offNo != "0") {
+            offNo = "0";
+            setItem(ButtonID, "0");
+        }
+    }
+
+    AddEvent(addButton, "click", () => {
+
+        if (offNo == "0") {
+			addButton.setAttribute("class", ButtonTitle + " button_on");
+            NoClickRunFun(addButton);
+            if (Memory != null) setItem(ButtonID, "1");
+            offNo = "1";
+            return;
+        }
+
+        if (offNo == "1") {
+			addButton.setAttribute("class", ButtonTitle + " button_off");
+            OffClickRunFun(addButton);
+            if (Memory != null) setItem(ButtonID, "0");
+            offNo = "0";
+            return;
+        }
+    })
+
+}
+function odysseyPluginsAddButton(ButtonID, ButtonTitle, ButtonLabel, NoClickRunFun, OffClickRunFun, Memory) {
+    var odysseyPlugins = document.getElementById("odysseyPlugins");
+    if (odysseyPlugins == null) {
+        var toolbarEdit = document.getElementById("toolbarEdit");
+        var barPlugins = document.getElementById("barPlugins");
+
+        if (toolbarEdit == null && barPlugins != null) {
+            odysseyPlugins = document.createElement("div");
+            odysseyPlugins.id = "odysseyPlugins";
+            barPlugins.parentElement.insertBefore(odysseyPlugins, barPlugins);
+        } else if (toolbarEdit != null) {
+            odysseyPlugins = insertCreateBefore(toolbarEdit, "div", "odysseyPlugins");
+            odysseyPlugins.style.position = "relative";
+        }
+    }
+
+    var addButton = addinsertCreateElement(odysseyPlugins, "div");
     addButton.style.float = "top";
 
 
@@ -1936,14 +1977,14 @@ function getcommonMenu_Bolck() {
                 concealMarkButton();//挖空
                 
                 tabbarVerticalButton();//垂直页签
-				
+                
 				topbarfixedButton();//顶栏悬浮
+
+                OpluginButton();//展开插件
 				
 				bulletThreading();//子弹线
  
                 setTimeout(() => ClickMonitor(), 3000);//各种列表转xx
-
-                autoOpenList();//自动展开悬浮窗内折叠列表（第一次折叠）
 
                 collapsedListPreview();//折叠列表内容预览查看
 
@@ -2030,6 +2071,10 @@ window.destroyTheme = () => {
     Oremove.forEach(function(Oremove) {  
         Oremove.parentNode.removeChild(Oremove);  
     }); 
+    // 删除收缩按钮
+	document.querySelector("#odysseyPlugins").remove();
+    // 删除空白
+    document.querySelector("#odysseydrag").remove();
     // 删除切换按钮
 	document.querySelector("#odysseyToolbar").remove();
 	// 删除列表转导图功能
