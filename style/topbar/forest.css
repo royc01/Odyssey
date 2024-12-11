@@ -434,7 +434,7 @@
     --Os-bazaar-focus: #ecefea;
     --Os-bazaar-item: #e1e4df;
     --Os-card--current: #f2ecfd;
-    --Os-card--current-shadow: #c0a1f5 0px 0px 0px 1px;
+    --Os-card--current-shadow: #c0a1f59e 0px 0px 0px 2px;
     
     /* 菜单 */
     --Os-menu-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;

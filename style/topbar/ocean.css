@@ -324,7 +324,22 @@
     --Os-bazaar-focus: #202434;
     --Os-bazaar-item: #02040b;
     --Os-card--current: #2a332d;
-    --Os-card--current-shadow: #cdff3b 0px 0px 0px 1px;
+    --Os-card--current-shadow: #ceff3b69 0px 0px 0px 2px;
+
+	/* 引述块颜色 */
+	--Os-bq-background1: rgb(35, 38, 40 , .3);
+	--Os-bq-background2: rgb(63, 68, 71 , .3);
+	--Os-bq-background3: rgb(69, 75, 78 , .3);
+	--Os-bq-background4: rgb(67, 64, 64 , .3);
+	--Os-bq-background5: rgb(89, 74, 58 , .3);
+	--Os-bq-background6: rgb(89, 79, 59 , .3);
+	--Os-bq-background7: rgb(89, 86, 59 , .3);
+	--Os-bq-background8: rgba(53, 76, 75 , .3);
+	--Os-bq-background9: rgb(54, 79, 84 , .3);
+	--Os-bq-background10: rgb(54, 73, 84 , .3);
+	--Os-bq-background11: rgb(68, 63, 87 , .3);
+	--Os-bq-background12: rgb(83, 59, 76 , .3);
+	--Os-bq-background13: rgb(89, 65, 65 , .3);
 
     /* 合并顶栏插件收缩颜色 */
     --Os-plugin-off-bg: #202434;

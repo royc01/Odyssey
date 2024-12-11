@@ -289,9 +289,9 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
-            .b3-card__desc{
+            /*.b3-card__desc{
                 display: block;
-            }
+            }*/
             .b3-card__actions{
                 position: absolute;
                 top: 70px;
@@ -320,19 +320,6 @@
         .b3-card--current{
             background-color: var(--Os-card--current);
             box-shadow: var(--Os-card--current-shadow);
-        }
-        .b3-card__info{
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .b3-card__desc{
-            display: block;
-        }
-        .b3-card__actions{
-            position: absolute;
-            top: 70px;
-            right: 0px;
         }
         .b3-cards>.fn__flex-1{
             margin-left: 6px!important;

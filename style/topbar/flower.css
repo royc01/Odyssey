@@ -334,8 +334,8 @@
     /* 集市界面 */
     --Os-bazaar-focus: #f4f0fb;
     --Os-bazaar-item: #e4ddf1;
-    --Os-card--current: #ffe4de;
-    --Os-card--current-shadow: #ff765b 0px 0px 0px 1px;
+    --Os-card--current: #ffefec;
+    --Os-card--current-shadow: #ff765ba7 0px 0px 0px 2px;
 
     /* 合并顶栏插件收缩颜色 */
     --Os-plugin-off-bg: #edeaf0;
