@@ -611,7 +611,10 @@
         border:1px solid var(--Os-block-link-bottom-hover);
     }
 }
-
+/* 下划线 */
+.b3-typography u, .b3-typography span[data-type~=u], .protyle-wysiwyg u, .protyle-wysiwyg span[data-type~=u] {
+    border-bottom: 2px solid;
+}
 /* 嵌入块 */
 .protyle-wysiwyg [data-node-id].render-node[data-type="NodeBlockQueryEmbed"]{
     border: 2px dashed var(--Os-block-NBQE);

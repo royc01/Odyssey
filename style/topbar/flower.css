@@ -178,40 +178,6 @@
     --b3-bq-background12: rgb(244, 223, 235 , .5);
     --b3-bq-background13: rgb(251, 228, 228 , .5);
 	
-	/* 顶栏 */
-	--b3-toolbar-blur-background: var(--O-toolbar-background);
-	--O-toolbar-background: #f9f5fc ;
-	--O-toolbar-item-hover: var(--b3-list-hover);
-	--O-toolbar-closeWindow-hover: linear-gradient(to bottom right,#8788ff, #c796f1);
-	--O-toolbar-closeWindow-svg: #fff;
-	
-	/* dock栏 */
-	--O-dock-color: #8e89a7;
-	--O-dock-background:  var(--O-toolbar-background);
-	--O-dockright-item-active-background: #a18ef9;
-	--O-dockleft-item-active-background: #a18ef9;
-	--O-dock-item-active-color: var(--b3-theme-background);
-	--O-dock-item-hover-background: #a18ef9;
-	--O-dock--item--activefocus: #ff5f40;
-	
-	--O-dock-item-width: 30px;
-	
-	/* 侧栏面板 */
-	--O-fn__flex-column-background: #f0ebf9;
-	--O-fn__flex-shrink-background: #f0ebf9;
-	--O-block-logo-color: var(--b3-theme-on-background);
-	--O-block-logo-background-color: #bdbcb8;
-	--O-block-icon-svg-color: #8e89a7;
-	--O-block-icon-hover: rgba(53, 61, 47, 0.06);
-	--O-list-item-arrow: rgba(55, 53, 47, 0.4);
-	--O-list-background: rgba(210, 201, 223, 0.3);
-	--O-list-background-focus: rgba(210, 201, 223, 0.6);
-	--O-list-background-activefocus:  rgba(255, 122, 64, 0.1);
-	--O-block-icon-active: var(--b3-theme-error);
-    --O-list-counter:#ffd2c4;
-	
-	--O-flex-column-padding:6px 0px 2px 0px;
-	--O-list-item-radius: 8px;
 	
 	/* 大纲数字 */
 	--h1-list-graphic: #eb8383;
@@ -229,45 +195,7 @@
 	--b3-border-fold: rgb(15, 15 , 15, .1);/*折叠边框*/
 	--b3-layout-resize-width: 1px;
 	
-	/* 页签 */
-	--O-item-focus: rgb(0, 0, 0 ,1);
-    --O-tabbar-background: #f9f5fc;
-	
-	/* 面包屑 */
-	--O-protyle-breadcrumb-arrow: rgba(174,172,166);
-	
-	/* 头图按钮 */
-	--O-icons-tooltips: rgba(55, 53, 47, 0.5);
-	--O-icons-tooltips-hover: var(--O-list-background);
-	--O-img-icons-tooltips: var(--b3-theme-on-surface);
-	--O-img-icons-tooltips-bg: var(--b3-theme-background);
-	--O-img-icons-span: rgba(0, 0, 0, .5);
-	
-	/* 块标 */
-	--b3-gutters-color: rgba(211,209,203);
-	--O-gutters-background: var(--O-toolbar-item-hover);
-	
-	/* 弹出工具条字体颜色选择 */
-	--b3-color--square: var(--b3-border-color);
-	
-	/* 任务列表 */
-	--b3-task-done-color: var(--b3-scroll-color-hover);
-	--b3-task-done-hover: #069ccd;
-	
-	/* 引述 */
-	--b3-bq-background: rgba(249, 249, 250);
-	
-	/* 块引用 */
-	--b3-block-ref-background: var(--O-toolbar-item-hover);
-    --O-block-ref-border: linear-gradient(to bottom right,#ff5f40, #ff5f40) 1;
-    	
-	/* 代码块 */
-	--O-linenumber-rows: rgba(55, 53, 47, 0.09);
-	--O-code-block-hljs: var(--O-list-background);		
-	
-	/*行内代码*/
-	--O-inline-code:var(--b3-theme-error);
-	
+
 	/*按钮*/
 	--b3-button: var(--O-dockright-item-active-background);
 	
@@ -282,20 +210,7 @@
 	--kbline-boarditem-minwidth: 14rem;/*看板卡片的最小宽度*/
 	--kb--li--background:#fff;
 	
-	/*ctrlp*/
-	--b3-list-item--meta: #9b9a97;
-	
-	/*底栏状态*/
-	--O-status-msg-background: #f1f1f0;
-	
-	/*标签*/
-	--O-chip--secondary:rgb(73, 41, 14);
-	--O-chip--primary:rgb(64, 44, 27);
-	--O-chip--info:rgb(28, 56, 41);
-	--O-chip--success:rgb(24, 51, 71);
-	--O-chip--warning:rgb(65, 36, 84);
-	--O-chip--error:rgb(76, 35, 55);
-	--O-chip--pink:rgb(93, 23, 21);
+
 
      /* ————————————————————  自定义结构配色  ———————————————————— */
 
@@ -313,7 +228,13 @@
     --Os-list-counter: #ffd2c4;
 
     /* 底栏 */
-    --Os-status-msg-background: #e8e0f79c;
+    --Os-status-msg-background: #f2eef9;
+    --Os-status-barDock: #e6e1f0;
+    --Os-status-barDock-color: #ff5f40;
+    --Os-status-item-hover: #d9d4e4;
+
+    /* 页签 */
+    --Os-tab-bar-item-background: var(--b3-theme-surface);
     
     /* 滚动条 */
 	--Os-scroll-color: #e1d9ee;

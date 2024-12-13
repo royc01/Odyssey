@@ -176,8 +176,7 @@
 	--kb--li--background:rgba(55, 60, 63);
 	/*ctrlp*/
 	--b3-list-item--meta: #ebebeb;
-	/*底栏状态*/
-	--O-status-msg-background:#404548;
+
 
 
 	
@@ -203,6 +202,10 @@
 
     /* 底栏 */
     --Os-status-msg-background: #343633;
+    --Os-status-barDock: #242723;
+    --Os-status-barDock-color: #ff6000;
+    --Os-status-item-hover: #373b36;
+
     
     /* 滚动条 */
 	--Os-scroll-color: #4d4e4c;

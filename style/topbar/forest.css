@@ -239,11 +239,14 @@
     --Os-backlink-list: var(--b3-theme-surface);
 
     /* 底栏 */
-    --Os-status-msg-background: #eeeeec;
+    --Os-status-msg-background: #f3f3ef;
+    --Os-status-barDock: #dde4d8;
+    --Os-status-barDock-color: #9d80ec;
+    --Os-status-item-hover: #e3e7e0;
 
     /* 页签 */
     --Os-tab-bar-background: var(--Os-toolbar-background);
-    --Os-tab-bar-item-background: var(--b3-theme-surface);
+    --Os-tab-bar-item-background: rgba(255, 255, 255, 0.4);
     --Os-tab-bar-item-background-hover: var(--b3-theme-background);
     --Os-tab-bar-item-background-focus: var(--b3-theme-background);
 

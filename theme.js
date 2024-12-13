@@ -31,7 +31,7 @@ window.theme.updateStyle = function (id, href) {
     }
 }
 
-window.theme.ID_COLOR_STYLE = 'theme-color-style';
+window.theme.ID_COLOR_STYLE = 'Os-theme-color';
 
 /**
  * 获取主题模式
@@ -365,11 +365,11 @@ function themeButton() {
 		"Forest",
 		'light',
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/forest.css", "theme-color-style-Forest").setAttribute("topicfilter", "buttonForest");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/forest.css", "Os-theme-color-Forest").setAttribute("topicfilter", "buttonForest");
             qucuFiiter();
         },
         () => {
-            document.getElementById("theme-color-style-Forest").remove();
+            document.getElementById("Os-theme-color-Forest").remove();
         },
         true
     );
@@ -379,11 +379,11 @@ function themeButton() {
 		"Flower",
 		'light',
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/flower.css", "theme-color-style-Flower").setAttribute("topicfilter", "buttonFlower");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/flower.css", "Os-theme-color-Flower").setAttribute("topicfilter", "buttonFlower");
             qucuFiiter();
         },
         () => {
-            document.getElementById("theme-color-style-Flower").remove();
+            document.getElementById("Os-theme-color-Flower").remove();
         },
         true
     );
@@ -393,11 +393,11 @@ function themeButton() {
 		"Wind",
 		'light',
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/wind.css", "theme-color-style-Wind").setAttribute("topicfilter", "buttonsugar");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/wind.css", "Os-theme-color-Wind").setAttribute("topicfilter", "buttonWind");
             qucuFiiter();
         },
         () => {
-            document.getElementById("theme-color-style-Wind").remove();
+            document.getElementById("Os-theme-color-Wind").remove();
         },
         true
     );
@@ -407,11 +407,11 @@ function themeButton() {
 		"Ocean",
 		'dark',
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/ocean.css", "theme-color-style-Ocean").setAttribute("topicfilter", "buttonOcean");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/ocean.css", "Os-theme-color-Ocean").setAttribute("topicfilter", "buttonOcean");
             qucuFiiter();
         },
         () => {
-            document.getElementById("theme-color-style-Ocean").remove();
+            document.getElementById("Os-theme-color-Ocean").remove();
         },
         true
     );
@@ -421,11 +421,11 @@ function themeButton() {
 		"Mountain",
 		'dark',
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/mountain.css", "theme-color-style-Mountain").setAttribute("topicfilter", "buttonMountain");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/mountain.css", "Os-theme-color-Mountain").setAttribute("topicfilter", "buttonMountain");
             qucuFiiter();
         },
         () => {
-            document.getElementById("theme-color-style-Mountain").remove();
+            document.getElementById("Os-theme-color-Mountain").remove();
         },
         true
     );
@@ -439,10 +439,10 @@ function concealMarkButton() {
         "b3-menu__item",
 		"挖空",
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/conceal-mark.css", "theme-color-style-conceal挖空").setAttribute("topBarcss", "conceal挖空");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/conceal-mark.css", "Os-theme-color-conceal挖空").setAttribute("topBarcss", "conceal挖空");
         },
         () => {
-            document.getElementById("theme-color-style-conceal挖空").remove();
+            document.getElementById("Os-theme-color-conceal挖空").remove();
         },
         true
     );
@@ -456,21 +456,21 @@ function tabbarVerticalButton() {
 		"垂直页签",
         () => {
             // 启用垂直页签时,先检查并关闭顶栏合并
-            let topbarFixed = document.getElementById("theme-color-style-topbar隐藏");
+            let topbarFixed = document.getElementById("Os-theme-color-topbar隐藏");
             if (topbarFixed) {
                 let topbarBtn = document.getElementById("topBar");
                 if (topbarBtn) topbarBtn.click();
             }
             
             // 添加垂直页签样式
-            loadStyle("/appearance/themes/Odyssey/style/topbar/tab-bar-vertical.css", "theme-color-style-tabbar垂直").setAttribute("topBarcss", "tabbar垂直");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/tab-bar-vertical.css", "Os-theme-color-tabbar垂直").setAttribute("topBarcss", "tabbar垂直");
             
             // 添加调整宽度的拖动条
             addResizeHandle();
         },
         () => {
             // 移除垂直页签样式
-            document.getElementById("theme-color-style-tabbar垂直").remove();
+            document.getElementById("Os-theme-color-tabbar垂直").remove();
             // 移除拖动条
             let resizeHandle = document.getElementById("vertical-resize-handle");
             if (resizeHandle) resizeHandle.remove();
@@ -552,10 +552,10 @@ function OpluginButton() {
         "toolbar__item b3-tooltips b3-tooltips__sw",
 		"收缩/展开插件",
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/Oplugin.css", "theme-color-style-plugin隐藏").setAttribute("Oplugin", "plugin隐藏");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/Oplugin.css", "Os-theme-color-plugin隐藏").setAttribute("Oplugin", "plugin隐藏");
         },
         () => {
-            document.getElementById("theme-color-style-plugin隐藏").remove();
+            document.getElementById("Os-theme-color-plugin隐藏").remove();
         },
         true
     );
@@ -569,7 +569,7 @@ function topbarfixedButton() {
 		"顶栏合并",
         () => {
             // 启用顶栏合并时,先检查并关闭垂直页签
-            let verticalTab = document.getElementById("theme-color-style-tabbar垂直");
+            let verticalTab = document.getElementById("Os-theme-color-tabbar垂直");
             if (verticalTab) {
                 // 找到垂直页签按钮并触发点击以关闭它
                 let verticalBtn = document.getElementById("tabbarVertical");
@@ -577,10 +577,10 @@ function topbarfixedButton() {
             }
             
             // 然后启用顶栏合并
-            loadStyle("/appearance/themes/Odyssey/style/topbar/top-fixed.css", "theme-color-style-topbar隐藏").setAttribute("topBarcss", "topbar隐藏");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/top-fixed.css", "Os-theme-color-topbar隐藏").setAttribute("topBarcss", "topbar隐藏");
         },
         () => {
-            document.getElementById("theme-color-style-topbar隐藏").remove();
+            document.getElementById("Os-theme-color-topbar隐藏").remove();
         },
         true
     );
@@ -594,10 +594,10 @@ function bulletThreading() {
         "b3-menu__item",
 		"列表子弹线",
         () => {
-            loadStyle("/appearance/themes/Odyssey/style/topbar/bullet-threading.css", "theme-color-style-列表子弹线").setAttribute("bulletThreading", "列表子弹线");
+            loadStyle("/appearance/themes/Odyssey/style/topbar/bullet-threading.css", "Os-theme-color-列表子弹线").setAttribute("bulletThreading", "列表子弹线");
         },
         () => {
-            document.getElementById("theme-color-style-列表子弹线").remove();
+            document.getElementById("Os-theme-color-列表子弹线").remove();
         },
         true
     );
@@ -1085,6 +1085,86 @@ if (barForwardElement !== null) {
 }
 odysseydragElement.style.cssText = "flex: 1; app-region: drag;"; 
 
+
+
+
+//添加底栏右间距*/
+function initStatusRight() {
+    let rafId = null;
+    let statusRight = null;
+    let dockr = null;
+    let dockRight = null;
+    
+    // 更新宽度的函数 - 使用缓存的DOM引用
+    const updateWidth = () => {
+        if (!statusRight || !dockr) return;
+        
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+            const dockRightWidth = (dockRight && !dockRight.classList.contains('fn__none')) ? 33 : 0;
+            statusRight.style.width = dockr.classList.contains('layout--float') 
+                ? `${dockRightWidth}px` 
+                : `${dockr.offsetWidth + 19 + dockRightWidth}px`;
+        });
+    };
+
+    // 合并的 Observer
+    const observer = new MutationObserver((mutations) => {
+        // 初始化阶段
+        if (!statusRight) {
+            const status = document.querySelector('.status');
+            dockr = document.querySelector('.layout__dockr');
+            dockRight = document.querySelector('#dockRight');
+            
+            if (status && dockr && !document.querySelector('.statusRight')) {
+                statusRight = Object.assign(document.createElement('div'), {
+                    className: 'statusRight'
+                });
+                status.appendChild(statusRight);
+                
+                // 开始观察布局变化
+                new ResizeObserver(updateWidth).observe(dockr);
+                
+                // 改为观察父元素
+                observer.disconnect();
+                if (dockRight && dockRight.parentElement) {
+                    observer.observe(dockRight.parentElement, {
+                        childList: true,
+                        attributes: true,
+                        attributeFilter: ['class'],
+                        subtree: true
+                    });
+                }
+                
+                updateWidth();
+                return;
+            }
+        }
+        
+        // 更新阶段 - 只在必要时更新引用和触发重绘
+        for (const mutation of mutations) {
+            if (mutation.type === 'childList') {
+                const newDockRight = document.querySelector('#dockRight');
+                if (dockRight !== newDockRight) {
+                    dockRight = newDockRight;
+                    updateWidth();
+                    break;
+                }
+            } else if (mutation.type === 'attributes' && mutation.target.id === 'dockRight') {
+                updateWidth();
+                break;
+            }
+        }
+    });
+
+    // 开始观察
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+}
+
+setTimeout(initStatusRight, 0);
 
 
 //+++++++++++++++++++++++++++++++++辅助API++++++++++++++++++++++++++++++++++++
@@ -2039,13 +2119,13 @@ function getcommonMenu_Bolck() {
                     if (loadFlower == '1') {
                         loadStyle(
                             '/appearance/themes/Odyssey/style/topbar/flower.css',
-                            'Flower主题'
+                            'Os-theme-color-Flower主题'
                         ).setAttribute('topicfilter', 'buttonFlower');
                     }
 					if (loadWind == '1') {
                         loadStyle(
                             '/appearance/themes/Odyssey/style/topbar/wind.css',
-                            'Wind主题'
+                            'Os-theme-color-Wind主题'
                         ).setAttribute('topicfilter', 'buttonWind');
                     }
 
@@ -2055,7 +2135,7 @@ function getcommonMenu_Bolck() {
                     if (loadMountain == '1') {
                         loadStyle(
                             '/appearance/themes/Odyssey/style/topbar/mountain.css',
-                            'Mountain主题'
+                            'Os-theme-color-Mountain主题'
                         ).setAttribute('topicfilter', 'buttonMountain');
                     }
                 }
@@ -2081,7 +2161,7 @@ function getcommonMenu_Bolck() {
 
                 console.log("==============>附加CSS和特性JS_已经执行<==============");
             }
-        }, 1000);
+        }, 100);
     };
     if (v == null) {
         window.theme.config = { "Odyssey": 1 };
@@ -2156,7 +2236,7 @@ function bulletMain() {
 
 window.destroyTheme = () => { 
     // 删除主题加载的额外样式
-    var Oremove = document.querySelectorAll('[id^="theme-color-style"]');  
+    var Oremove = document.querySelectorAll('[id^="Os-theme-color"]');  
     Oremove.forEach(function(Oremove) {  
         Oremove.parentNode.removeChild(Oremove);  
     }); 
@@ -2168,6 +2248,8 @@ window.destroyTheme = () => {
 	document.querySelector("#odysseyToolbar").remove();
 	// 删除列表转导图功能
     window.removeEventListener('mouseup', MenuShow);
+    // 删除底栏间隙
+	document.querySelector(".statusRight").remove();
 };
 
 

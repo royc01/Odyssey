@@ -195,7 +195,13 @@
     --Os-list-counter: rgba(55, 53, 47, 0.1);
 
     /* 底栏 */
-    --Os-status-msg-background: #d1d1d1;
+    --Os-status-msg-background: #e3e1e1;
+    --Os-status-barDock: #dedede;
+    --Os-status-barDock-color: #ff5f40;
+    --Os-status-item-hover: #e9e9e9;
+
+    /* 页签 */
+    --Os-tab-bar-item-background: var(--b3-theme-surface);
     
     /* 滚动条 */
 	--Os-scroll-color: #d1d1d1;
