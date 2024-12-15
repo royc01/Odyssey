@@ -19,7 +19,7 @@
         box-shadow: 10px 10px 0 var(--Os-toolbar-background);
         position: absolute;
         bottom: 0px;
-        left: -26px;
+        left: -31px;
         z-index: -2;
     }
     &>div:not(.statusRight){
