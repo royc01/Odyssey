@@ -228,7 +228,7 @@
     --Os-list-counter: #ffd2c4;
 
     /* 底栏 */
-    --Os-status-msg-background: #f2eef9;
+	--Os-status-msg-background: var(--b3-theme-background);
     --Os-status-barDock: #e6e1f0;
     --Os-status-barDock-color: #ff5f40;
     --Os-status-item-hover: #d9d4e4;

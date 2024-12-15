@@ -201,7 +201,7 @@
 	--Os-list-focus-active:  rgba(205, 255, 59, 0.1);
 
     /* 底栏 */
-    --Os-status-msg-background: #343633;
+	--Os-status-msg-background: var(--b3-theme-background);
     --Os-status-barDock: #242723;
     --Os-status-barDock-color: #ff6000;
     --Os-status-item-hover: #373b36;

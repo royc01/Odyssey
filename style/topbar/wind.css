@@ -195,7 +195,7 @@
     --Os-list-counter: rgba(55, 53, 47, 0.1);
 
     /* 底栏 */
-    --Os-status-msg-background: #e3e1e1;
+	--Os-status-msg-background: var(--b3-theme-background);
     --Os-status-barDock: #dedede;
     --Os-status-barDock-color: #ff5f40;
     --Os-status-item-hover: #e9e9e9;

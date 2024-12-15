@@ -239,7 +239,7 @@
     --Os-backlink-list: var(--b3-theme-surface);
 
     /* 底栏 */
-    --Os-status-msg-background: #f3f3ef;
+    --Os-status-msg-background: var(--b3-theme-background);
     --Os-status-barDock: #dde4d8;
     --Os-status-barDock-color: #9d80ec;
     --Os-status-item-hover: #e3e7e0;

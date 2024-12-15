@@ -104,12 +104,15 @@ body:not(.body--mobile,.body--window)>#toolbar{
 			app-region: no-drag;
             padding: 6.5px!important;
 			margin-bottom: -1px;
-			background-color: var(--Os-plugin-off-bg);
+			background-color: transparent;
             &[data-type="new"]{
                 margin-right: 6px;
             }
 		}
-	}	
+	}
+	&.layout-tab-bar--readonly::before {
+            top: 5px;
+        }
 }
 .layout__center .fn__flex-column>.fn__flex>.layout-tab-bar{
 	z-index: 2;
@@ -117,7 +120,6 @@ body:not(.body--mobile,.body--window)>#toolbar{
 	background-color:var(--Os-toolbar-background);
 	border: none;
 	&.layout-tab-bar--readonly{
-		background-color: rgba(0, 0, 0, 0);
 		flex:none;
 	}
 }
