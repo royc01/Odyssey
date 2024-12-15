@@ -1104,7 +1104,7 @@ function initStatusRight() {
             const dockRightWidth = (dockRight && !dockRight.classList.contains('fn__none')) ? 33 : 0;
             statusRight.style.width = dockr.classList.contains('layout--float') 
                 ? `${dockRightWidth}px` 
-                : `${dockr.offsetWidth + 10 + dockRightWidth}px`;
+                : `${dockr.offsetWidth + 11 + dockRightWidth}px`;
         });
     };
 

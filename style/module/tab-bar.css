@@ -12,10 +12,7 @@
         overflow: unset !important;
         transition: none;
         box-shadow: -5px 0 0 0 var(--Os-toolbar-background) inset;
-        &:last-child{
-            padding-right: 15px;
-            box-shadow: -15px 0 0 0 var(--Os-toolbar-background) inset;
-        }
+
         &:hover{
             background-color: var(--Os-tab-bar-item-background-hover); 
         }
@@ -49,7 +46,6 @@
                 box-shadow:  0 0 0 24px var(--Os-tab-bar-item-background-focus);
             }
             &:last-child{
-                padding-right: 15px;
                 box-shadow: none;
                 &::after{
                     display: none;
@@ -65,7 +61,7 @@
         background-color: var(--Os-toolbar-background);
         border-radius: 10px 0 0 10px;
         padding-left: 5px;
-        margin-left: -15px;
+        margin-left: -5px;
         overflow: visible;
         z-index: 2;
 
